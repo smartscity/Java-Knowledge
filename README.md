@@ -1,7 +1,8 @@
-<<<<<<< HEAD
-# Introduction
-=======
-# 一、知识整理与总结
+# J2EE Experience
+
+## Introduction
+
+## 一、知识整理与总结
 
 ### 1、JVM
 
@@ -21,7 +22,7 @@ CAS、volatile
 
 * MySQL
 * Mongo
-* [Redis](/Users/apple/Documents/知识整理/5.3、Redis.md)
+* [Redis](https://github.com/smartscity/Java-Knowledge/tree/1a8e43b4067cfb72223d14798cacab29ad8ef5b1/Users/apple/Documents/知识整理/5.3、Redis.md)
 * Neo4J
 
 ### 7、架构
@@ -41,7 +42,7 @@ CAS、volatile
   * memecache
   * ecache
 
-### [9、分布式事务](/Users/apple/Documents/知识整理/9、分布式事务.md)
+### [9、分布式事务](https://github.com/smartscity/Java-Knowledge/tree/1a8e43b4067cfb72223d14798cacab29ad8ef5b1/Users/apple/Documents/知识整理/9、分布式事务.md)
 
 ### 10、高并发
 
@@ -49,6 +50,3 @@ CAS、volatile
 
 ### 12、源码分析
 
-
-
->>>>>>> 13050d4171ba659c9179d7f186a863e2fecd0416
