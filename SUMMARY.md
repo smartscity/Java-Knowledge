@@ -24,11 +24,13 @@
 ## Data Structure
 
 * [Data Structure](data-structure/data-structure.md)
+* [Tree](data-structure/tree.md)
 
 ## Algorithm
 
 * [Counting Sort](algorithm/counting-sort.md)
 * [TOP K](algorithm/top-k.md)
+* [Binary Tree Search](algorithm/binary-tree-search.md)
 
 ## Architecture
 
