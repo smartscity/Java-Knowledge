@@ -37,3 +37,12 @@
 * [Micro Service Architecture](architecture/micro-service-architecture.md)
 * [SOA  Architecture](architecture/soa-architecture.md)
 
+## Machine Learning
+
+* [Introduce](machine-learning/introduce.md)
+* [Linear Regression](machine-learning/linear-regression.md)
+* [Spark ML](machine-learning/spark-ml.md)
+* [Tensoflow](machine-learning/tensoflow.md)
+* [DeepLearning4J](machine-learning/deeplearning4j.md)
+* [XGBoost](machine-learning/xgboost.md)
+
