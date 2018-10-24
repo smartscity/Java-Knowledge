@@ -30,3 +30,8 @@
 * [Counting Sort](algorithm/counting-sort.md)
 * [TOP K](algorithm/top-k.md)
 
+## Architecture
+
+* [Micro Service Architecture](architecture/micro-service-architecture.md)
+* [SOA  Architecture](architecture/soa-architecture.md)
+
