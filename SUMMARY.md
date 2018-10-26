@@ -56,3 +56,7 @@
   * [Untitled](machine-learning/untitled/untitled-1.md)
   * [Untitled](machine-learning/untitled/untitled-2.md)
 
+## Paper Writing
+
+* [Rules of Paper](paper-writing/rules-of-paper.md)
+

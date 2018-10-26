@@ -4,6 +4,28 @@ description: 关于泰坦尼克幸存者语言
 
 # Titanic Demo
 
+* **Competition Description**
+* **WorkFlow**
+
+  * Define Problem
+  * Specify Inputs & Outputs
+  * Exploratory data analysis
+  * Data Collection
+  * Data Preprocessing
+  * Data Cleaning
+  * Visualization
+  * Model Design, Training, and Offline Evaluation
+  * Model Deployment, Online Evaluation, and Monitoring
+  * Model Maintenance, Diagnosis, and Retraining
+
+  \*\*\*\*
+
+* **图示**
+
+  \*\*\*\*
+
+  ![](../../.gitbook/assets/image%20%287%29.png)
+
 * **Python**
 
 {% code-tabs %}
