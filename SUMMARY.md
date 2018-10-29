@@ -38,6 +38,9 @@
 
 * [Micro Service Architecture](architecture/micro-service-architecture.md)
 * [SOA  Architecture](architecture/soa-architecture.md)
+* [Domain-Driven Design](architecture/domain-driven-design.md)
+* [Distributed Transaction Service](architecture/distributed-transaction-service.md)
+* [Database Transaction](architecture/database-transaction.md)
 
 ## Machine Learning
 
