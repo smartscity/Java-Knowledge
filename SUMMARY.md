@@ -6,7 +6,7 @@
   * [2.Java 锁](jvm/2.java-suo.md)
 * [数据结构](shu-ju-jie-gou.md)
 * [算法](4-suan-fa/README.md)
-  * [Untitled](4-suan-fa/untitled.md)
+  * [Sorting](4-suan-fa/untitled.md)
   * [\[数据库\]](4-suan-fa/shu-ju-ku/README.md)
     * [5.1、MySQL](4-suan-fa/shu-ju-ku/5.1-mysql.md)
     * [5.2、MongoDB](4-suan-fa/shu-ju-ku/5.2-mongodb.md)
