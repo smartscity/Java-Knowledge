@@ -46,19 +46,21 @@
 ## Machine Learning
 
 * [Introduce](machine-learning/introduce.md)
-* [Linear Regression](machine-learning/linear-regression.md)
-* [Decision Tree](machine-learning/decision-tree.md)
-* [Naive Bayes](machine-learning/naive-bayes.md)
-* [Spark ML](machine-learning/spark-ml.md)
-* [Tensoflow](machine-learning/tensoflow.md)
-* [DeepLearning4J](machine-learning/deeplearning4j.md)
-* [XGBoost](machine-learning/xgboost.md)
-* [Support Vector Machine](machine-learning/support-vector-machine.md)
+* [Machine Learning Algorithm](machine-learning/untitled/README.md)
+  * [Linear Regression](machine-learning/untitled/linear-regression.md)
+  * [Decision Tree](machine-learning/untitled/decision-tree.md)
+  * [Naive Bayes](machine-learning/untitled/naive-bayes.md)
+  * [Support Vector Machine](machine-learning/untitled/support-vector-machine.md)
+  * [Untitled](machine-learning/untitled/untitled-2.md)
+* [Machine Learning Tools](machine-learning/untitled-3/README.md)
+  * [Spark ML](machine-learning/untitled-3/spark-ml/README.md)
+    * [Basic Knowledge](machine-learning/untitled-3/spark-ml/untitled-1.md)
+  * [DeepLearning4J](machine-learning/untitled-3/deeplearning4j.md)
+  * [Tensoflow](machine-learning/untitled-3/tensoflow.md)
+  * [XGBoost](machine-learning/untitled-3/xgboost.md)
+  * [Untitled](machine-learning/untitled-3/untitled-2.md)
 * [Kaggle Competition](machine-learning/kaggle-competition/README.md)
   * [Titanic Demo](machine-learning/kaggle-competition/titanic-demo.md)
-* [Untitled](machine-learning/untitled/README.md)
-  * [Untitled](machine-learning/untitled/untitled-1.md)
-  * [Untitled](machine-learning/untitled/untitled-2.md)
 
 ## Paper Writing
 
