@@ -9,13 +9,13 @@ description: >-
 
 * **线性回归模型函数**
 
-![](../../.gitbook/assets/image%20%2821%29.png)
+![](../../.gitbook/assets/image%20%2822%29.png)
 
 * **损失函数**
 
   \*\*\*\*
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../../.gitbook/assets/image%20%2812%29.png)
 
 * **优点**
   * **结果易于理解**

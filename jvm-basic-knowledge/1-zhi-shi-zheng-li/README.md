@@ -1,5 +1,20 @@
 # Java Knowledge
 
+### **JVM Architecture Diagram**
+
+![](../../.gitbook/assets/image%20%283%29.png)
+
+### JVM 按占用内存位置划分为四个区域
+
+* Heap（存储实体与数据）
+* Method Area / Metaspace（存储静态实体与数据）
+* Native Method Stack\(本地方法栈，线程的初始化\)
+* 堆外内存（）
+
+### How JVM works in Java?
+
+1. Class Loader in subsystem.
+2. 
 ## 1、JVM
 
 * JVM

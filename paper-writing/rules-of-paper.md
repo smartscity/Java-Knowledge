@@ -1,4 +1,4 @@
-# Rules of Paper
+# Rules of Paper \(论文规则\)
 
 ## 介绍
 

@@ -1,35 +1,37 @@
 # Table of contents
 
 * [J2EE Experience](README.md)
-* [JVM](jvm/README.md)
-  * [1.JVM原理](jvm/1.1-jvm.md)
-  * [2.Java 锁](jvm/2.java-suo.md)
-* [数据结构](shu-ju-jie-gou.md)
-* [算法](4-suan-fa/README.md)
-  * [Sorting](4-suan-fa/untitled.md)
-  * [\[数据库\]](4-suan-fa/shu-ju-ku/README.md)
-    * [5.1、MySQL](4-suan-fa/shu-ju-ku/5.1-mysql.md)
-    * [5.2、MongoDB](4-suan-fa/shu-ju-ku/5.2-mongodb.md)
-  * [一致性Hash](4-suan-fa/yi-zhi-xing-hash.md)
-* [多线程](duo-xian-cheng.md)
-* [架构](5.2-mongodb.md)
-* [1. JVM](chapter1.md)
+* [1.About Me](1.about-me.md)
 
 ## JVM Basic knowledge
 
-* [JVM Principle](jvm-basic-knowledge/jvm-principle.md)
-* [Untitled](jvm-basic-knowledge/untitled.md)
 * [Java Knowledge](jvm-basic-knowledge/1-zhi-shi-zheng-li/README.md)
-  * [1.About Me](jvm-basic-knowledge/1-zhi-shi-zheng-li/1.about-me.md)
-  * [2.高级特性](jvm-basic-knowledge/1-zhi-shi-zheng-li/2.-gao-ji-te-xing.md)
+  * [JVM 1.7](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm-principle.md)
+  * [JVM 1.8](jvm-basic-knowledge/1-zhi-shi-zheng-li/chapter1.md)
+  * [GC 原理](jvm-basic-knowledge/1-zhi-shi-zheng-li/gc-yuan-li.md)
+  * [字节码](jvm-basic-knowledge/1-zhi-shi-zheng-li/zi-jie-ma.md)
+  * [动态代理](jvm-basic-knowledge/1-zhi-shi-zheng-li/dong-tai-dai-li.md)
+  * [多线程](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng.md)
+  * [Java Lock](jvm-basic-knowledge/1-zhi-shi-zheng-li/2.java-suo.md)
+  * [工作中遇到的问题](jvm-basic-knowledge/1-zhi-shi-zheng-li/untitled.md)
+  * [Java Agent（代理）](jvm-basic-knowledge/1-zhi-shi-zheng-li/2.-gao-ji-te-xing.md)
+* [JVM](jvm-basic-knowledge/jvm/README.md)
+  * [1.JVM原理](jvm-basic-knowledge/jvm/1.1-jvm.md)
 
 ## Data Structure
 
 * [Data Structure](data-structure/data-structure.md)
 * [Tree](data-structure/tree.md)
+* [数据结构](data-structure/shu-ju-jie-gou.md)
 
 ## Algorithm
 
+* [算法](algorithm/4-suan-fa/README.md)
+  * [Sorting](algorithm/4-suan-fa/untitled.md)
+  * [\[数据库\]](algorithm/4-suan-fa/shu-ju-ku/README.md)
+    * [5.1、MySQL](algorithm/4-suan-fa/shu-ju-ku/5.1-mysql.md)
+    * [5.2、MongoDB](algorithm/4-suan-fa/shu-ju-ku/5.2-mongodb.md)
+  * [一致性Hash](algorithm/4-suan-fa/yi-zhi-xing-hash.md)
 * [Counting Sort](algorithm/counting-sort.md)
 * [TOP K](algorithm/top-k.md)
 * [Binary Tree Search](algorithm/binary-tree-search.md)
@@ -42,6 +44,7 @@
 * [Domain-Driven Design](architecture/domain-driven-design.md)
 * [Database Transaction](architecture/database-transaction.md)
 * [Distributed Transaction Service](architecture/distributed-transaction-service.md)
+* [架构](architecture/5.2-mongodb.md)
 
 ## Machine Learning
 
@@ -64,5 +67,9 @@
 
 ## Paper Writing
 
-* [Rules of Paper](paper-writing/rules-of-paper.md)
+* [Rules of Paper \(论文规则\)](paper-writing/rules-of-paper.md)
+
+## Operation & Monitoring
+
+* [Monitor Service](monitor/monitor-service.md)
 
