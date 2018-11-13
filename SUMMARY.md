@@ -11,8 +11,10 @@
   * [GC 原理](jvm-basic-knowledge/1-zhi-shi-zheng-li/gc-yuan-li.md)
   * [字节码](jvm-basic-knowledge/1-zhi-shi-zheng-li/zi-jie-ma.md)
   * [动态代理](jvm-basic-knowledge/1-zhi-shi-zheng-li/dong-tai-dai-li.md)
-  * [多线程](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng.md)
-  * [Java Lock](jvm-basic-knowledge/1-zhi-shi-zheng-li/2.java-suo.md)
+  * [多线程](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/README.md)
+    * [Java Lock](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/2.java-suo.md)
+    * [Untitled](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/untitled-2.md)
+  * [Untitled](jvm-basic-knowledge/1-zhi-shi-zheng-li/untitled-1.md)
   * [工作中遇到的问题](jvm-basic-knowledge/1-zhi-shi-zheng-li/untitled.md)
   * [Java Agent（代理）](jvm-basic-knowledge/1-zhi-shi-zheng-li/2.-gao-ji-te-xing.md)
 * [JVM](jvm-basic-knowledge/jvm/README.md)
@@ -65,11 +67,11 @@
 * [Kaggle Competition](machine-learning/kaggle-competition/README.md)
   * [Titanic Demo](machine-learning/kaggle-competition/titanic-demo.md)
 
-## Paper Writing
-
-* [Rules of Paper \(论文规则\)](paper-writing/rules-of-paper.md)
-
 ## Operation & Monitoring
 
 * [Monitor Service](monitor/monitor-service.md)
+
+## Paper Writing
+
+* [Rules of Paper \(论文规则\)](paper-writing/rules-of-paper.md)
 
