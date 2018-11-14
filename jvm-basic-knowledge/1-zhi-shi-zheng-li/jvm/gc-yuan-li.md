@@ -1,9 +1,14 @@
 # GC 原理
 
+### 查看GC日志
+
+* `-verbose:gc -XX:HeapDumpPath=. -Xloggc:gc.log -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:+DisableExplicitGC -XX:+PrintTenuringDistribution`
+* \`\`
+
 ### 如何分配
 
 * 对象优先出生在 Eden 区
-* 当Eden 即便经过`minor gc` 也装不下 `Big Object` 或者超过配置 `--XX:PretenureSizeThreshold=3M`那么它直接进入 Old 区
+* 当Eden 即便经过`Minor gc` 也装不下 `Big Object` 或者超过配置 `--XX:PretenureSizeThreshold=3M`那么它直接进入 Old 区
 
 ### 分配流程
 
@@ -25,7 +30,7 @@
   * 方法区中常量引用的对象
   * 本地方法栈中 JNI 引用的对象
 
-![](../../.gitbook/assets/image%20%287%29.png)
+![](../../../.gitbook/assets/image%20%287%29.png)
 
 ### 垃圾回收算法
 

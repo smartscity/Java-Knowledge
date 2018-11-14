@@ -6,38 +6,50 @@
 ## JVM Basic knowledge
 
 * [Java Knowledge](jvm-basic-knowledge/1-zhi-shi-zheng-li/README.md)
-  * [JVM 1.7](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm-principle.md)
-  * [JVM 1.8](jvm-basic-knowledge/1-zhi-shi-zheng-li/chapter1.md)
-  * [GC 原理](jvm-basic-knowledge/1-zhi-shi-zheng-li/gc-yuan-li.md)
-  * [字节码](jvm-basic-knowledge/1-zhi-shi-zheng-li/zi-jie-ma.md)
-  * [动态代理](jvm-basic-knowledge/1-zhi-shi-zheng-li/dong-tai-dai-li.md)
+  * [JVM](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/README.md)
+    * [JVM 1.7 Principle](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/jvm-principle.md)
+    * [JVM 1.8](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/chapter1.md)
+    * [堆外内存](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/dui-wai-nei-cun.md)
+    * [GC 原理](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/gc-yuan-li.md)
+    * [字节码](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/zi-jie-ma.md)
+    * [空间占用](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/kong-jian-zhan-yong.md)
+    * [动态代理](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/dong-tai-dai-li.md)
+    * [JVM 命令](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/jvm-ming-ling.md)
+    * [总结](jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/zong-jie.md)
   * [多线程](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/README.md)
     * [Java Lock](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/2.java-suo.md)
-    * [Untitled](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/untitled-2.md)
-  * [Untitled](jvm-basic-knowledge/1-zhi-shi-zheng-li/untitled-1.md)
-  * [工作中遇到的问题](jvm-basic-knowledge/1-zhi-shi-zheng-li/untitled.md)
+    * [Thread Pool](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/untitled-2.md)
+    * [高级特性](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/gao-ji-te-xing.md)
+    * [协程](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/xie-cheng.md)
+    * [潜规则](jvm-basic-knowledge/1-zhi-shi-zheng-li/duo-xian-cheng/qian-gui-ze.md)
   * [Java Agent（代理）](jvm-basic-knowledge/1-zhi-shi-zheng-li/2.-gao-ji-te-xing.md)
-* [JVM](jvm-basic-knowledge/jvm/README.md)
-  * [1.JVM原理](jvm-basic-knowledge/jvm/1.1-jvm.md)
+* [Q&A](jvm-basic-knowledge/untitled.md)
 
 ## Data Structure
 
-* [Data Structure](data-structure/data-structure.md)
-* [Tree](data-structure/tree.md)
+* [Data Structure](data-structure/data-structure/README.md)
+  * [Array](data-structure/data-structure/jvm.md)
+  * [Heap](data-structure/data-structure/untitled-1.md)
+  * [Queue](data-structure/data-structure/1.1-jvm.md)
+  * [LinkedList](data-structure/data-structure/linkedlist.md)
+  * [Tree](data-structure/data-structure/tree/README.md)
+    * [二叉树](data-structure/data-structure/tree/er-cha-shu.md)
+    * [B&B+ Tree](data-structure/data-structure/tree/b-and-b+-tree.md)
+    * [Merkle Tree](data-structure/data-structure/tree/merkle-tree.md)
 * [数据结构](data-structure/shu-ju-jie-gou.md)
 
 ## Algorithm
 
-* [算法](algorithm/4-suan-fa/README.md)
+* [时间复杂度](algorithm/shi-jian-fu-za-du.md)
+* [算法基础](algorithm/4-suan-fa/README.md)
   * [Sorting](algorithm/4-suan-fa/untitled.md)
-  * [\[数据库\]](algorithm/4-suan-fa/shu-ju-ku/README.md)
-    * [5.1、MySQL](algorithm/4-suan-fa/shu-ju-ku/5.1-mysql.md)
-    * [5.2、MongoDB](algorithm/4-suan-fa/shu-ju-ku/5.2-mongodb.md)
-  * [一致性Hash](algorithm/4-suan-fa/yi-zhi-xing-hash.md)
-* [Counting Sort](algorithm/counting-sort.md)
-* [TOP K](algorithm/top-k.md)
-* [Binary Tree Search](algorithm/binary-tree-search.md)
-* [Distributed System Algorithm](algorithm/distributed-system-algorithm.md)
+  * [Counting Sort](algorithm/4-suan-fa/counting-sort.md)
+  * [TOP K](algorithm/4-suan-fa/top-k.md)
+  * [Binary Tree Search](algorithm/4-suan-fa/binary-tree-search.md)
+  * [一致性算法](algorithm/4-suan-fa/yi-zhi-xing-suan-fa.md)
+* [消息传递的一致性算法](algorithm/distributed-system-algorithm.md)
+* [分布式缓存一致性算法](algorithm/yi-zhi-xing-hash.md)
+* [Q&A](algorithm/q-and-a.md)
 
 ## Architecture
 
@@ -47,6 +59,13 @@
 * [Database Transaction](architecture/database-transaction.md)
 * [Distributed Transaction Service](architecture/distributed-transaction-service.md)
 * [架构](architecture/5.2-mongodb.md)
+
+## Storage
+
+* [MySQL](storage/5.1-mysql.md)
+* [5.2、MongoDB](storage/5.2-mongodb.md)
+* [ClickHouse](storage/shu-ju-ku.md)
+* [Neo4j](storage/neo4j.md)
 
 ## Framework
 

@@ -1,10 +1,8 @@
-# JVM 1.7
+# JVM 1.7 Principle
 
-## JVM 1.7 Principle
+### JDK 1.7 Architecture Diagram
 
-* JDK 1.7 Architecture diagram:
-
-![](../../.gitbook/assets/image%20%2817%29.png)
+![](../../../.gitbook/assets/image%20%2817%29.png)
 
 ```text
 含义
@@ -17,11 +15,11 @@
 -Xss设置每个线程的堆栈大小。
 ```
 
-* Roots Tracing \(可达性分析算法\)
+### Roots Tracing \(可达性分析算法\)
 
-![](../../.gitbook/assets/image%20%2830%29.png)
+![](../../../.gitbook/assets/image%20%2830%29.png)
 
-* Reference Counting（引用计数法）
+### Reference Counting（引用计数法）
 
 
 

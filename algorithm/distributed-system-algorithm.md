@@ -1,12 +1,16 @@
-# Distributed System Algorithm
+---
+description: 分布式系统一致性算法
+---
 
-#### Paxos & Vector Clock
+# 消息传递的一致性算法
+
+### Paxos & Vector Clock
 
 * **e.g.**
   * **PaxosStore for wechat**
   * **zookeeper**
 
-#### Raft & Log Sync
+### Raft & Log Sync
 
 * **e.g.**
   * **Redis Sentinel**
@@ -14,7 +18,7 @@
 
 
 
-#### Paxos VS Raft
+### Paxos VS Raft
 
 <table>
   <thead>
@@ -46,3 +50,14 @@
     </tr>
   </tbody>
 </table>
+
+### 比较
+
+| 算法 | 相同点 | 不同点 |
+| :--- | :--- | :--- |
+| **Paxos** |  |  |
+| **Raft** |  |  |
+| **ZAB** |  |  |
+
+
+
