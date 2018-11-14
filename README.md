@@ -2,19 +2,19 @@
 
 ## About Me
 
-## JVM Basic knowledge （JVM 基础知识）
+## JVM Basic knowledge 
 
-### Data Structure （数据结构）
+### Data Structure
 
-### Algorithm （算法）
+### Algorithm
 
-### Architecture （架构）
+### Architecture
 
 ### Framework
 
-### Machine Learning（机器学习）
+### Machine Learning
 
-### Operation & Montoring（运维&监控）
+### Operation & Montoring
 
 ### Paper Writing（论文撰写）
 
