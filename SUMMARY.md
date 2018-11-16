@@ -98,6 +98,8 @@
 ## Operation & Monitoring
 
 * [Monitor Service](monitor/monitor-service.md)
+* [自动化运维](monitor/zi-dong-hua-yun-wei/README.md)
+  * [Ansible](monitor/zi-dong-hua-yun-wei/ansible.md)
 
 ## Paper Writing
 
