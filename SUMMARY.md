@@ -98,6 +98,9 @@
 ## Operation & Monitoring
 
 * [Monitor Service](monitor/monitor-service.md)
+* [DevOps](monitor/devops.md)
+* [Kubernetes 安装](monitor/kubernetes-an-zhuang/README.md)
+  * [Minikube](monitor/kubernetes-an-zhuang/minikube.md)
 * [自动化运维](monitor/zi-dong-hua-yun-wei/README.md)
   * [Ansible](monitor/zi-dong-hua-yun-wei/ansible.md)
 
