@@ -17,7 +17,7 @@
 
 ### Roots Tracing \(可达性分析算法\)
 
-![](../../../.gitbook/assets/image%20%2830%29.png)
+![](../../../.gitbook/assets/image%20%2831%29.png)
 
 ### Reference Counting（引用计数法）
 

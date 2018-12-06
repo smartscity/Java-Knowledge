@@ -47,17 +47,20 @@
   * [TOP K](algorithm/4-suan-fa/top-k.md)
   * [Binary Tree Search](algorithm/4-suan-fa/binary-tree-search.md)
   * [一致性算法](algorithm/4-suan-fa/yi-zhi-xing-suan-fa.md)
-* [消息传递的一致性算法](algorithm/distributed-system-algorithm.md)
+* [消息传递的一致性算法](algorithm/distributed-system-algorithm/README.md)
+  * [Paxos](algorithm/distributed-system-algorithm/paxos.md)
 * [分布式缓存一致性算法](algorithm/yi-zhi-xing-hash.md)
 * [Q&A](algorithm/q-and-a.md)
 
 ## Architecture
 
 * [SOA  Architecture](architecture/soa-architecture.md)
-* [Micro Service Architecture](architecture/micro-service-architecture.md)
+* [Micro Service Architecture](architecture/micro-service-architecture/README.md)
+  * [Traeffic](architecture/micro-service-architecture/traeffic.md)
 * [Domain-Driven Design](architecture/domain-driven-design.md)
 * [Database Transaction](architecture/database-transaction.md)
 * [Distributed Transaction Service](architecture/distributed-transaction-service.md)
+* [Untitled](architecture/untitled.md)
 * [架构](architecture/5.2-mongodb.md)
 
 ## Storage
