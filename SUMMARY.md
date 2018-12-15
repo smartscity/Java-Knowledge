@@ -110,4 +110,5 @@
 ## Paper Writing
 
 * [Rules of Paper \(论文规则\)](paper-writing/rules-of-paper.md)
+* [人力资源管理概论](paper-writing/hr.md)
 
