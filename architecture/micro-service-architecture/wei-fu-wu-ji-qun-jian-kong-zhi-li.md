@@ -34,12 +34,21 @@
 ### 控制
 
 * Dump heap
-* 
+* API 归集
+  * API Testing
+  * API Mock
+
 ### 整治
 
 ### 管理
 
-### 
+
+
+## Design
+
+### Data Center -&gt; Cluster -&gt; Service Name -&gt; Application\[1-N\] 
+
+
 
 ## For People
 
