@@ -68,5 +68,7 @@ rabbitmq:
 
 > https://www.cnblogs.com/atwind/p/5606120.html
 
+### RabbitMQ之Qos prefetch
 
+> [https://www.jianshu.com/p/4d043d3045ca](https://www.jianshu.com/p/4d043d3045ca)
 
