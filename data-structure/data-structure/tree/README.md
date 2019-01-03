@@ -13,7 +13,7 @@ description: Root Branch Leaf （ 根 枝 叶）
   * **在查询时会产生很多磁盘IO，因为遍历次数过多**
 * **图示**
 
-![](../../../.gitbook/assets/image%20%286%29.png)
+![](../../../.gitbook/assets/image%20%287%29.png)
 
 * 
 #### B Tree
@@ -27,7 +27,7 @@ description: Root Branch Leaf （ 根 枝 叶）
   * \*\*\*\*
 * **图示**
 
-![](../../../.gitbook/assets/image%20%2821%29.png)
+![](../../../.gitbook/assets/image%20%2824%29.png)
 
 #### B+ Tree
 
@@ -37,7 +37,7 @@ description: Root Branch Leaf （ 根 枝 叶）
   * 适合范围查询
 * **图示**
 
-![](../../../.gitbook/assets/image%20%2825%29.png)
+![](../../../.gitbook/assets/image%20%2828%29.png)
 
 
 

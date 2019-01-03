@@ -1,30 +1,36 @@
-# Kubernetes 介绍
+# Kubeadm
 
-### 安装
 
-* **Minikube** base on VM
-* **microk8s** for Linux
-* **Kubeadm** 
-* a
-* **Rancher**
 
-### 网络
+### 追踪日志
 
-使Service暴露应用
 
-* **ClusterIP（默认）**
-  * 仅在集群内部IP上暴露服务，此类型使Service只能从群集中访问。
-* **NodePort**
-  * 通过每个 Node 上的 IP 和静态端口（NodePort）暴露服务（30000~）
-* **LoadBalancer**
-  * 使用云提供商的负载均衡器
-* **Ingress**
-* \*\*\*\*
-* **ExternalName**
 
-### **架构图**
+{% embed url="https://blog.csdn.net/shenhonglei1234/article/details/82421742" %}
 
-![](../../.gitbook/assets/image%20%2829%29.png)
+```java
+追踪日志 
+要主动追踪当前正在编写的日志，大家可以使用-f标记。同样功能类似为tail -f，只要不终止，会一直监控 
+journalctl -f 
+
+也许最有用的过滤方式是你感兴趣的单位。我们可以使用这个-u选项来过滤我们可以使用这个-u选项来过滤 
+journalctl -u 
+
+所以我们最终使用的命令是： 
+journalctl -f -u kubelet
+```
+
+### 
+
+
+
+### 
+
+### 
+
+### [https://www.cnblogs.com/Irving/p/9818440.html](https://www.cnblogs.com/Irving/p/9818440.html)
+
+### [https://blog.csdn.net/tiger435/article/details/85002337](https://blog.csdn.net/tiger435/article/details/85002337)
 
 ### 下载
 

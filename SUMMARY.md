@@ -57,6 +57,8 @@
 * [SOA  Architecture](architecture/soa-architecture.md)
 * [Micro Service Architecture](architecture/micro-service-architecture/README.md)
   * [Traeffic](architecture/micro-service-architecture/traeffic.md)
+  * [Metrics 监控 for Prometheus&Grafana](architecture/micro-service-architecture/metrics-jian-kong-for-prometheusgrafana.md)
+  * [微服务集群监控治理](architecture/micro-service-architecture/wei-fu-wu-ji-qun-jian-kong-zhi-li.md)
 * [Domain-Driven Design](architecture/domain-driven-design.md)
 * [Database Transaction](architecture/database-transaction.md)
 * [Distributed Transaction Service](architecture/distributed-transaction-service.md)
@@ -102,8 +104,9 @@
 
 * [Monitor Service](monitor/monitor-service.md)
 * [DevOps](monitor/devops.md)
-* [Kubernetes 安装](monitor/kubernetes-an-zhuang/README.md)
+* [Kubernetes 介绍](monitor/kubernetes-an-zhuang/README.md)
   * [Minikube](monitor/kubernetes-an-zhuang/minikube.md)
+  * [Kubeadm](monitor/kubernetes-an-zhuang/kubeadm.md)
 * [自动化运维](monitor/zi-dong-hua-yun-wei/README.md)
   * [Ansible](monitor/zi-dong-hua-yun-wei/ansible.md)
 
@@ -111,4 +114,8 @@
 
 * [Rules of Paper \(论文规则\)](paper-writing/rules-of-paper.md)
 * [人力资源管理概论](paper-writing/hr.md)
+
+## Q&A
+
+* [RabbitMQ  Producer Block](q-and-a/rabbitmq-producer-block.md)
 
