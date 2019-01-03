@@ -8,6 +8,7 @@
 
 * Spring Cloud Cluster
 * Spring boot
+* Health metrics
 * JVM metrics, report utilization of:
   * Various memory and buffer pools
   * Statistics related to garbage collection
