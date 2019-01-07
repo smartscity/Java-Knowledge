@@ -75,10 +75,6 @@ Microservices are optional, and fully supported:
 * Full Docker and Docker Compose support
 * Support for all major cloud providers:  Kubernetes, 混合云，Istio，AWS, Docker…
 
-### 
-
-### 
-
 ## 可借鉴项
 
 ### 架构优点
@@ -110,8 +106,8 @@ Microservices are optional, and fully supported:
 
 ### 框架优点
 
-* **Liquibase**  Database updates version
-* **Metrics** for prometheus 
+* ~~**Liquibase**  Database updates version~~
+* **Metrics** for prometheus
 * **Gatling** 性能测试用例
 
 ### DevOps优点
@@ -124,6 +120,7 @@ Microservices are optional, and fully supported:
 
 * Jenkins
 * Sonar
+* ~~checkstyle~~
 
 ### Codegen
 
@@ -131,4 +128,17 @@ Microservices are optional, and fully supported:
   * create a application
 * **JHipster Domain Language（JDL）**
 * **思路**
+
+
+
+## 总结
+
+**结合目前情况，综合分析能够拿来参考项：**
+
+* Swagger 接口归集 （ + mock + 反馈评价）
+* Metrics for Prometheus
+* ELK 日志分析
+* deploy cloud 
+
+
 
