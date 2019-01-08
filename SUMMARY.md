@@ -119,5 +119,11 @@
 
 * [RabbitMQ  Producer Block](q-and-a/rabbitmq-producer-block.md)
 * [Technology Stack Selection](q-and-a/technology-stack-selection.md)
-* [SaaS Store](q-and-a/saas-store.md)
+* [SaaS Store](q-and-a/saas-store/README.md)
+  * [需求点](q-and-a/saas-store/xu-qiu-dian.md)
+  * [Codegen](q-and-a/saas-store/codegen.md)
+  * [Building](q-and-a/saas-store/building.md)
+  * [Test & QA](q-and-a/saas-store/test-and-qa.md)
+  * [Deploy](q-and-a/saas-store/deploy.md)
+  * [Production](q-and-a/saas-store/production.md)
 
