@@ -4,6 +4,8 @@
 
 ### Domain Language（推荐）（领域语言驱动代码生成）
 
+* 勾选依赖 架构部组件
+* RabbitMQ、Redis【单点、集群、哨兵】
 * application 一个微服务工程
 * applicationType gateway、microservice、monolith\[all in one\]
 * prodDatabaseType mysql、postgresql、mongodb
