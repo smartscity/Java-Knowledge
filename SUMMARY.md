@@ -125,5 +125,6 @@
   * [Building](q-and-a/saas-store/building.md)
   * [Test & QA](q-and-a/saas-store/test-and-qa.md)
   * [Deploy](q-and-a/saas-store/deploy.md)
+  * [Liquibase](q-and-a/saas-store/liquibase.md)
   * [Production](q-and-a/saas-store/production.md)
 
