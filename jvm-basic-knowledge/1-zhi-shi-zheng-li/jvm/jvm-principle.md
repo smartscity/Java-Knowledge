@@ -2,7 +2,7 @@
 
 ### JDK 1.7 Architecture Diagram
 
-![](../../../.gitbook/assets/image%20%2819%29.png)
+![](../../../.gitbook/assets/image%20%2821%29.png)
 
 ```text
 含义
@@ -17,7 +17,7 @@
 
 ### Roots Tracing \(可达性分析算法\)
 
-![](../../../.gitbook/assets/image%20%2835%29.png)
+![](../../../.gitbook/assets/image%20%2837%29.png)
 
 ### Reference Counting（引用计数法）
 

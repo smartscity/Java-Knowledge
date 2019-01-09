@@ -1,8 +1,30 @@
 # Liquibase
 
+## Why use it?
 
+### 记录数据库变更
 
-## How to used
+### 执行数据库变更
+
+### 良好的支持多种数据库
+
+| Database | Type Name | Notes |
+| :--- | :--- | :--- |
+| MySQL | mysql | No Issues |
+| PostgreSQL | postgresql | 8.2+ is required to use the "drop all database objects" functionality. |
+| Oracle | oracle | 11g driver is required when using the diff tool on databases running with AL32UTF8 or AL16UTF16 |
+| Sql Server | mssql | No Issues |
+| Sybase\_Enterprise | sybase | ASE 12.0+ required. "select into" database option needs to be set. Best driver is JTDS. Sybase does not support transactions for DDL so rollbacks will not work on failures. Foreign keys can not be dropped which can break the rollback or dropAll functionality. |
+| Sybase\_Anywhere | asany | **Since 1.9** |
+| DB2 | db2 | No Issues. Will auto-call REORG when necessary. |
+| [Apache\_Derby](http://www.liquibase.org/apache_derby.html) | derby | No Issues |
+| HSQL | hsqldb | No Issues |
+| H2 | h2 | No Issues |
+| [Informix](http://www.liquibase.org/informix.html) | informix | No Issues |
+| Firebird | firebird | No Issues |
+| [SQLite](http://www.liquibase.org/sqlite.html) | sqlite | No Issues |
+
+## How to used?
 
 ### Gradle import
 
@@ -21,13 +43,15 @@ compile("org.liquibase:liquibase-core")
 
 ### Configuration  `application.yml`
 
+* 需要在 `application.yml`中，增加`liquibase`配置
+
 {% code-tabs %}
 {% code-tabs-item title="application.yml" %}
 ```yaml
 liquibase:
   change-log: classpath:config/liquibase/master.xml
-  drop-first: false
-  enabled: true
+  drop-first: false      #优先drop整库之后，顺序执行 master.xml
+  enabled: true          #开启Liquibase
   check-change-log-location: true
 ```
 {% endcode-tabs-item %}
@@ -39,7 +63,13 @@ liquibase:
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+* 图例
+
+![](../../.gitbook/assets/image%20%2816%29.png)
+
 ### Configuration master.xml
+
+* 在`master.xml`中，include 表结构、索引、数据库脚本升级包
 
 {% code-tabs %}
 {% code-tabs-item title="master.xml" %}
@@ -85,10 +115,8 @@ liquibase:
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <property name="now" value="now()" dbms="h2"/>
-
     <property name="now" value="now()" dbms="mysql"/>
     <property name="autoIncrement" value="true"/>
-
     <property name="floatType" value="float4" dbms="postgresql, h2"/>
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
@@ -262,4 +290,100 @@ liquibase:
 
 ### 如何管理版本
 
-* 
+
+
+## Advanced Usage
+
+### Preconditions 条件判断 <a id="sample-with-preconditions"></a>
+
+* 简单判断
+
+```markup
+    <changeSet id="1" author="bob">
+        <preConditions onFail="WARN">
+            <sqlCheck expectedResult="0">select count(*) from oldtable</sqlCheck>
+        </preConditions>
+        <comment>Comments should go after preCondition. If they are before then liquibase usually gives error.</comment>
+        <dropTable tableName="oldtable"/>
+    </changeSet>
+```
+
+* Will require running on Oracle OR MySQL which makes more sense than the above example.
+
+```markup
+ <preConditions>
+     <or>
+         <and>
+            <dbms type="oracle" />
+            <runningAs username="SYSTEM" />
+         </and>
+         <and>
+            <dbms type="mysql" />
+            <runningAs username="root" />
+         </and>
+     </or>
+ </preConditions>
+```
+
+### Parameters 应用
+
+* oracle 和 mysql 在一些 type 命名是不一样的，可以通过此种方式做通用适配
+
+| Attribute | Description |
+| :--- | :--- |
+| name | Name of the table's schema **required** |
+| value | Name of the column's table **required** |
+| context | Contexts given as comma separated list. |
+| dbms | Database types given as comma separated list. |
+
+```markup
+    <property name="clob.type" value="clob" dbms="oracle"/>
+    <property name="clob.type" value="longtext" dbms="mysql"/>
+
+    <changeSet id="1" author="joe">
+         <createTable tableName="${table.name}">
+             <column name="id" type="int"/>
+             <column name="${column1.name}" type="${clob.type}"/>
+             <column name="${column2.name}" type="int"/>
+         </createTable>
+    </changeSet>
+```
+
+### Database “Diff”
+
+> [http://www.liquibase.org/documentation/diff.html](http://www.liquibase.org/documentation/diff.html)
+
+## Liquibase Command <a id="liquibase-command-line"></a>
+
+### 反向生成 `Liquibase` from database
+
+* [download liquibase.jar](http://download.liquibase.org/download)
+* view `liquibase`
+
+![](../../.gitbook/assets/image%20%2819%29.png)
+
+* **将已有数据库结构生成**`liquibase.xml`
+
+{% code-tabs %}
+{% code-tabs-item title="generate.sh" %}
+```bash
+./liquibase --driver=com.mysql.jdbc.Driver \  
+                --classpath=lib/ \
+                --changeLogFile=config/liquibase/changelog/db.changelog.xml \
+                --url="jdbc:mysql://172.16.60.247:3306/suixingpay-starter-demo?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull" \
+                --username=fd \
+                --password=123456 \
+                generateChangeLog
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+### 
+
+
+
+
+
+
+
