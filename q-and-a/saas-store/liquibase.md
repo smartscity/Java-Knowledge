@@ -58,7 +58,7 @@ compile("org.liquibase:liquibase-core")
 {% code-tabs-item title="application.yml" %}
 ```yaml
 liquibase:
-  change-log: classpath:config/liquibase/master.xml
+  change-log: classpath:config/liquibase/db.changelog.xml
   drop-first: false      #优先drop整库之后，顺序执行 master.xml
   enabled: true          #开启Liquibase
   check-change-log-location: true
@@ -78,51 +78,58 @@ liquibase:
 
 ### 第三步 配置Liquibase部署文件
 
-#### Configuration master.xml
+#### Configuration `db.changelog.xml`
 
-* 在`master.xml`中，引入 【表结构】、【索引】、【数据库脚本升级包】
+* 在`db.changelog.xml`中，配置初始化变化集`changeSet`、Tag标签、重大升级变化集`changeSet`等。
 
 {% code-tabs %}
-{% code-tabs-item title="master.xml" %}
+{% code-tabs-item title="db.changelog.xml" %}
 ```markup
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
-    <!--  初始化 - we will add liquibase init changelogs here -->
-    <include file="config/liquibase/changelog/20180628072446_added_entity.xml" relativeToChangelogFile="false"/>
-
-    <!-- 变化 - we will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20180628072447_added_column.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20180628072448_modify_column.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20180628072449_insert_data.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20180628072451_drop_column.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20180628072452_drop_column.xml" relativeToChangelogFile="false"/>
-
-    <!-- 索引 - we will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20180628072450_added_index.xml" relativeToChangelogFile="false"/>
-
-    <!-- 约束 - we will add liquibase constraints changelogs here -->
+    <!-- 初始化的 变化集-->
+    <changeSet id="20180628072451-1" author="suixingpay"> 
+    </changeSet>
+    <!-- Tag标签分割，用于rollback到此-->
+    <changeSet author="suixingpay" id="tag_1">
+        <tagDatabase tag="version_0.1.0" />
+    </changeSet>
+    <!-- 重大升级 变化集合 etd. -->
 </databaseChangeLog>
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-## Configuration Liquibase
+## Configuration ChangeSet
 
-### 介绍
+### ChangeSet
 
-* **ChangeSet 变化的集合，必须唯一**
-* **ChangeSet Supported**
+**ChangeSet 存储每个阶段变化的集合，即变更集；它有以下几个主要属性：**
+
+* **id                      ：唯一标示，不得重复**
+* **runOnChange :  当changeSet内容发生改变时，执行此**
+* **runAlways      ：总是执行此changeSet**
+
+### **ChangeSet Supported**
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">ChangeSet 下的功能</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">e.g.</th>
+      <th style="text-align:left"><b>ChangeSet 下的功能</b>
+      </th>
+      <th style="text-align:left"><b>Description</b>
+      </th>
+      <th style="text-align:left"><b>e.g.</b>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -191,27 +198,17 @@ liquibase:
       <td style="text-align:left"></td>
     </tr>
   </tbody>
-</table>
+</table>### `Rollback`划重点
+
+在changeSet下有一个非常重要的标签，rollback；它定义了回滚语句
+
+
 
 ### 我要创建表结构
 
 {% code-tabs %}
 {% code-tabs-item title="20180628072446\_added\_entity.xml" %}
 ```markup
-<?xml version="1.0" encoding="utf-8"?>
-<databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
-                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-
-    <property name="now" value="now()" dbms="h2"/>
-    <property name="now" value="now()" dbms="mysql"/>
-    <property name="autoIncrement" value="true"/>
-    <property name="floatType" value="float4" dbms="postgresql, h2"/>
-    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
-
     <!--
         Added the entity custom.
     -->
@@ -263,13 +260,14 @@ liquibase:
 
             <!-- needle-liquibase-add-column - we will add columns here, do not remove-->
         </createTable>
-
-
-
+        <!-- 此处不写 rollback ，因为它可以被  autoRollback -->
+        <!-- 【insert】 【drop】 【modifyDataType】必须写rollback，才会被回滚 -->
     </changeSet>
-    <!-- needle-liquibase-add-changeset - we will add changesets here, do not remove-->
-</databaseChangeLog>
-
+    
+    <!-- Tag标签分割，用于rollback到此-->
+    <changeSet author="suixingpay" id="tag_version_0_1_0">
+        <tagDatabase tag="version_0.1.0" />
+    </changeSet>
 
 ```
 {% endcode-tabs-item %}
@@ -282,18 +280,10 @@ liquibase:
 {% code-tabs %}
 {% code-tabs-item title="20180628072450\_added\_index.xml" %}
 ```markup
-<?xml version="1.0" encoding="utf-8"?>
-<databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
-                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <!--
+   <!--
         modify mobile of the entity custom   length = 11 + 2 = 13.
     -->
-    <changeSet id="20180628072450-1" author="suixingpay">
-
+    <changeSet id="201806280724549-1" author="suixingpay">
         <createIndex tableName="custom" indexName="idx_custom_username_mobile_nickname_fullname_registerxtime" unique="false">
             <column name="username"/>
             <column name="mobile"/>
@@ -302,9 +292,11 @@ liquibase:
             <column name="register_time"/>
         </createIndex>
     </changeSet>
-
-</databaseChangeLog>
-
+    
+    <!-- Tag标签分割，用于rollback到此-->
+    <changeSet author="suixingpay" id="tag_version_0_2_0">
+        <tagDatabase tag="version_0.2.0" />
+    </changeSet>
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -314,13 +306,6 @@ liquibase:
 {% code-tabs %}
 {% code-tabs-item title="20180628072449\_insert\_data.xml" %}
 ```markup
-<?xml version="1.0" encoding="utf-8"?>
-<databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
-                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <changeSet id="20180628072450-1" author="suixingpay" >
         <insert tableName="custom">
             <column name="username" value="liyunlong"/>
@@ -331,9 +316,20 @@ liquibase:
             <column name="full_name" value="姓名"/>
             <!-- <column name="status" value="1"/> -->
         </insert>
+        <!-- 回滚语句 -->
+        <rollback>
+            <delete tableName="custom">
+                <where>
+                    username = 'liyunlong'
+                </where>
+            </delete>
+        </rollback>
     </changeSet>
-</databaseChangeLog>
-
+    
+    <!-- Tag标签分割，用于rollback到此-->
+    <changeSet author="suixingpay" id="tag_version_0_3_0">
+        <tagDatabase tag="version_0.3.0" />
+    </changeSet>
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -345,13 +341,6 @@ liquibase:
 * dropColumn 删除列定义
 
 ```markup
-<?xml version="1.0" encoding="utf-8"?>
-<databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
-                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
     <!--
         Added column of the entity custom .
     -->
@@ -368,6 +357,9 @@ liquibase:
     -->
     <changeSet id="20180628072448-1" author="suixingpay">
         <modifyDataType tableName="custom" columnName="mobile" newDataType="varchar(13)"/>
+        <rollback>
+            <modifyDataType tableName="custom" columnName="mobile" newDataType="varchar(11)"/>
+        </rollback>
     </changeSet>
 
     <!--
@@ -375,14 +367,96 @@ liquibase:
     -->
     <changeSet id="20180628072451-1" author="suixingpay">
         <dropColumn tableName="custom" columnName="bbbb" />
+        <rollback>
+            <addColumn tableName="custom">
+                <column name="bbbb" type="boolean" defaultValueBoolean="true" remarks="测试"></column>
+            </addColumn>
+        </rollback>
     </changeSet>
-</databaseChangeLog>
+    
+    <changeSet id="20180628072452-1" author="suixingpay">
+        <dropColumn tableName="custom" columnName="active" />
+        <rollback>
+            <addColumn tableName="custom">
+                <column name="active" type="boolean" defaultValueBoolean="true" remarks="激活1"></column>
+            </addColumn>
+        </rollback>
+    </changeSet>
+    
+    <changeSet author="suixingpay" id="tag_version_0_4_0">
+        <tagDatabase tag="version_0.4.0" />
+    </changeSet>
 
 ```
 
+### 完整的 `db.changelog.xml`
+
+{% file src="../../.gitbook/assets/db.changelog\_now.xml" %}
+
+
+
+## 版本管理
+
+### TAG管理
+
+* 在changeSet中，打版本标签：
+
+```markup
+    <changeSet author="suixingpay" id="1">
+    <changeSet author="suixingpay" id="tag_version_0_7_0">
+        <tagDatabase tag="version_0.7.0" />
+    </changeSet>
+    <changeSet author="suixingpay" id="2">
+```
+
+### 版本升级
+
+* **自动升级**
+  * **适用增量滚动升级**
+  * 准备好即将升级的`changeset`脚本，见【制作数据升级包】包含：
+    * 新增加的表结构
+    * 变更列
+    * 增加索引
+    * 增加新数据，删除过期数据
+  * 启动工程后，即可查看目标数据结构变化
+    * 此处建议 关闭 `drop-first` 避免销毁数据
+
+{% code-tabs %}
+{% code-tabs-item title="application.yml" %}
+```yaml
+drop-first: false      #优先drop整库之后，顺序执行 master.xml
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+* **手动升级**
+  * **Gradle commands**
+
+    ```bash
+    gradle update
+    ```
+
+  * **Maven commands**
+
+    ```bash
+    mvn update
+    ```
+
+### 版本回滚
+
+* **Gradle commands 回滚到指定历史版本tag**
+
+  ```bash
+  gradle rollback -PliquibaseCommandValue=version_0.5.0
+  ```
+
+* **Maven commands**
+
+  ```bash
+  mvn liquibase:rollback -Dliquibase.rollbackTag=version_0.5.0
+  ```
+
 ### 
-
-
 
 ## Advanced Usage
 
@@ -488,7 +562,27 @@ liquibase:
 
 * 图示
 
-![](../../.gitbook/assets/image%20%2839%29.png)
+![](../../.gitbook/assets/image%20%2840%29.png)
+
+### 比较 `Diff`
+
+* 比较两个数据库差异
+
+```bash
+./liquibase --driver=com.mysql.jdbc.Driver 
+                --classpath=lib/ 
+                --changeLogFile=config/liquibase/changelog/db.changelog.xml 
+                --url="jdbc:mysql://172.16.60.247:3306/suixingpay-starter-demo?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull" 
+                --username=fd --password=123456 
+                diff 
+                --referenceUrl="jdbc:mysql://172.16.60.247:3306/test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull" 
+                --referenceUsername=fd 
+                --referencePassword=123456
+```
+
+* 结果如下图所示，红框内为变化量：
+
+![](../../.gitbook/assets/image%20%2834%29.png)
 
 ### More Command
 
@@ -529,4 +623,26 @@ liquibase:
 * [Run through your](http://www.liquibase.org/documentation/running.html) build process, embedded in your application or on demand
 * Automatically [generate SQL scripts](http://www.liquibase.org/documentation/sql_output.html) for DBA code review
 * Does not require a [live database connection](http://www.liquibase.org/documentation/offline.html)
+
+### Configuration `Gradle build.xml`
+
+```groovy
+liquibase {
+    activities {
+        main {
+            changeLogFile 'src/main/resources/config/liquibase/changelog/db.changelog_now.xml'
+            username 'fd'
+            url 'jdbc:mysql://172.16.60.247:3306/suixingpay-starter-demo?userSSL=false'
+            password '123456'
+        }
+        diff {
+            changeLogFile 'src/main/resources/config/liquibase/changelog/*'
+            url 'jdbc:mysql://172.16.60.247:3306/test'
+            username 'fd'
+            password '123456'
+        }
+    }
+    runList = 'main'
+}
+```
 
