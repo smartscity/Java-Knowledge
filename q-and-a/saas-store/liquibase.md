@@ -15,11 +15,9 @@ Liquibase是一个用于跟踪、管理和应用数据库变化的开源的数�
 * **历史版本留痕**
   * 在数据库中保存数据库修改历史\(DatabaseChangeHistory\),在数据库升级时自动跳过已应用的变化 \(ChangSet\)
 * **回滚**
-  * 提供变化应用的回滚功能,可按时间、数量或标签\(tag\)回滚已应用的变化。通过这种方式,开发人员可轻易的还原数据库在任何时间点的状态
+  * 提供变化应用的回滚功能,可按时间、数量或**标签\(tag\)**回滚已应用的变化。通过这种方式,开发人员可轻易的还原数据库在任何时间点的状态
 * **生成变化文档**
   * 可生成数据库修改文档\(HTML格式\)   （见`Liquibase Command 章节`）
-
-
 
 ## How to used?
 
@@ -48,7 +46,7 @@ compile("org.liquibase:liquibase-core")
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### 第二步 配置Springboot配置文件
+### 第二步 配置`application.yml`配置文件
 
 #### Configuration  `application.yml`
 
@@ -64,17 +62,7 @@ liquibase:
   check-change-log-location: true
 ```
 {% endcode-tabs-item %}
-
-{% code-tabs-item title=undefined %}
-```
-
-```
-{% endcode-tabs-item %}
 {% endcode-tabs %}
-
-* **图例**
-
-![](../../.gitbook/assets/image%20%2816%29.png)
 
 ### 第三步 配置Liquibase部署文件
 
@@ -98,6 +86,7 @@ liquibase:
 
     <!-- 初始化的 变化集-->
     <changeSet id="20180628072451-1" author="suixingpay"> 
+        <!-- 详见 【Configuration ChangeSet】 -->
     </changeSet>
     <!-- Tag标签分割，用于rollback到此-->
     <changeSet author="suixingpay" id="tag_1">
@@ -108,6 +97,65 @@ liquibase:
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+## 如何版本管理
+
+### TAG管理
+
+* **按照文件顺序**在`changeSet`中，打版本标签`<tagDatabase tag="version_0.7.0" />`
+* 当`rollback`时，会回滚到指定`tag`之前的样子
+* `tag`允许被**字符串命名**，建议与`release number`保持一致
+
+```markup
+    <changeSet author="suixingpay" id="1">
+    <changeSet author="suixingpay" id="tag_version_0_7_0">
+        <tagDatabase tag="version_0.7.0" />
+    </changeSet>
+    <changeSet author="suixingpay" id="2">
+```
+
+### 版本升级
+
+准备好即将升级的`changeset`脚本，见【**制作数据升级包**】包含：
+
+* **手动升级**
+  * **Gradle commands 执行此命令可以达到增量滚动升级脚本的目的**
+
+    ```bash
+    gradle update
+    ```
+
+  * **Maven commands 执行此命令可以达到增量滚动升级脚本的目的**
+
+    ```bash
+    mvn update
+    ```
+* **自动升级**
+  * 启动工程后，即可查看目标数据结构变化
+    * **注意 此处 关闭 `drop-first` 避免业务销毁数据**
+
+      {% code-tabs %}
+      {% code-tabs-item title="application.yml" %}
+      ```yaml
+      drop-first: false      #优先drop整库之后，顺序执行 master.xml
+      ```
+      {% endcode-tabs-item %}
+      {% endcode-tabs %}
+* ~~**指定升级**~~
+
+### 版本回滚
+
+* **Gradle commands 回滚到指定历史版本tag**
+
+  ```bash
+  gradle rollback -PliquibaseCommandValue=version_0.5.0
+  ```
+
+* **Maven commands 回滚到指定历史版本tag**
+
+  ```bash
+  mvn liquibase:rollback -Dliquibase.rollbackTag=version_0.5.0
+  ```
 
 ## Configuration ChangeSet
 
@@ -395,67 +443,6 @@ liquibase:
 
 
 
-## 版本管理
-
-### TAG管理
-
-* 在changeSet中，打版本标签：
-
-```markup
-    <changeSet author="suixingpay" id="1">
-    <changeSet author="suixingpay" id="tag_version_0_7_0">
-        <tagDatabase tag="version_0.7.0" />
-    </changeSet>
-    <changeSet author="suixingpay" id="2">
-```
-
-### 版本升级
-
-* **自动升级**
-  * **适用增量滚动升级**
-  * 准备好即将升级的`changeset`脚本，见【制作数据升级包】包含：
-    * 新增加的表结构
-    * 变更列
-    * 增加索引
-    * 增加新数据，删除过期数据
-  * 启动工程后，即可查看目标数据结构变化
-    * 此处建议 关闭 `drop-first` 避免销毁数据
-
-{% code-tabs %}
-{% code-tabs-item title="application.yml" %}
-```yaml
-drop-first: false      #优先drop整库之后，顺序执行 master.xml
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-* **手动升级**
-  * **Gradle commands**
-
-    ```bash
-    gradle update
-    ```
-
-  * **Maven commands**
-
-    ```bash
-    mvn update
-    ```
-
-### 版本回滚
-
-* **Gradle commands 回滚到指定历史版本tag**
-
-  ```bash
-  gradle rollback -PliquibaseCommandValue=version_0.5.0
-  ```
-
-* **Maven commands**
-
-  ```bash
-  mvn liquibase:rollback -Dliquibase.rollbackTag=version_0.5.0
-  ```
-
 ### 
 
 ## Advanced Usage
@@ -645,4 +632,15 @@ liquibase {
     runList = 'main'
 }
 ```
+
+## Q&A
+
+### CI&CD 如果与生产环境不同该如何处理？
+
+1. 准备CI&CD环境配置，准备CI&CD数据库，以便与生产网络不通时，让CI&CD可以继续运行，不至于阻塞；
+2. 而到了生产部署时，`liquibase.enabled: true`  只需开启，便会自动执行滚动升级
+
+### TAG版本号如何管理？
+
+1. 版本号是字符串，建议根据`release number`设定，`tagDatabase`是按文件顺序切割版本，所以`rollback`时，注意`changeset`顺序即可。
 
