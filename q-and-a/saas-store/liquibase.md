@@ -1,6 +1,6 @@
 # Liquibase
 
-## About Liquibase
+## About `Liquibase`
 
 Liquibase是一个用于跟踪、管理和应用数据库变化的开源的数据库重构工具；它将所有数据库的变化\(包括结构和数据\)都保存在文件中\(见附录2\)，便于版本控制。
 
@@ -19,11 +19,11 @@ Liquibase是一个用于跟踪、管理和应用数据库变化的开源的数�
 * **生成变化文档**
   * 可生成数据库修改文档\(HTML格式\)   （见`Liquibase Command 章节`）
 
-## How to used?
+## \* How to used?
 
 ### 第一步 导入依赖
 
-#### `build.gradle` Gradle import
+#### Gradle import`build.gradle` 
 
 {% code-tabs %}
 {% code-tabs-item title="build.gradle" %}
@@ -33,7 +33,7 @@ compile("org.liquibase:liquibase-core")
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-#### `pom.xml` Maven import
+####  Maven import`pom.xml`
 
 {% code-tabs %}
 {% code-tabs-item title="pom.xml" %}
@@ -46,7 +46,7 @@ compile("org.liquibase:liquibase-core")
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### 第二步 配置`application.yml`配置文件
+### 第二步 配置`springboot`配置文件
 
 #### Configuration  `application.yml`
 
@@ -64,7 +64,7 @@ liquibase:
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-### 第三步 配置Liquibase部署文件
+### 第三步 配置`Liquibase`部署文件
 
 #### Configuration `db.changelog.xml`
 
@@ -98,25 +98,35 @@ liquibase:
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-## 如何版本管理
+## \* 如何版本管理
 
-### TAG管理
+### 通过TAG管理版本
 
-* **按照文件顺序**在`changeSet`中，打版本标签`<tagDatabase tag="version_0.7.0" />`
-* 当`rollback`时，会回滚到指定`tag`之前的样子
+**怎么打TAG？**
+
+* 在`changeSet`中，打版本标签`<tagDatabase tag="version_0.7.0" />`如下：
+
+
+
+  ```markup
+      <changeSet author="suixingpay" id="1">
+      <changeSet author="suixingpay" id="tag_version_0_7_0">
+          <tagDatabase tag="version_0.7.0" />
+      </changeSet>
+      <changeSet author="suixingpay" id="2">
+  ```
+
+* 每一个tagDatabase标签需要放在独立的changeSet中
+
+**TAG是怎么保证顺序的？**
+
+* **TAG顺序是按照**`classpath:config/liquibase/db.changelog.xml`**文件顺序**
 * `tag`允许被**字符串命名**，建议与`release number`保持一致
-
-```markup
-    <changeSet author="suixingpay" id="1">
-    <changeSet author="suixingpay" id="tag_version_0_7_0">
-        <tagDatabase tag="version_0.7.0" />
-    </changeSet>
-    <changeSet author="suixingpay" id="2">
-```
+* 当`rollback`时，会回滚到指定`tag`之前的样子
 
 ### 版本升级
 
-准备好即将升级的`changeset`脚本，见【**制作数据升级包**】包含：
+准备好即将升级的`changeset`脚本，详见【**制作数据升级包**】
 
 * **手动升级**
   * **Gradle commands 执行此命令可以达到增量滚动升级脚本的目的**
@@ -131,7 +141,7 @@ liquibase:
     mvn update
     ```
 * **自动升级**
-  * 启动工程后，即可查看目标数据结构变化
+  * 启动工程后，Liquibase会自动运行比较后，执行那些新增的changeSet，随后即可查看目标数据结构变化
     * **注意 此处 关闭 `drop-first` 避免业务销毁数据**
 
       {% code-tabs %}
@@ -145,19 +155,19 @@ liquibase:
 
 ### 版本回滚
 
-* **Gradle commands 回滚到指定历史版本tag**
+* **Gradle commands 回滚到指定历史版本**`<tagDatabase tag="version_0.5.0" />`
 
   ```bash
   gradle rollback -PliquibaseCommandValue=version_0.5.0
   ```
 
-* **Maven commands 回滚到指定历史版本tag**
+* **Maven commands 回滚到指定历史版本**`<tagDatabase tag="version_0.5.0" />`
 
   ```bash
   mvn liquibase:rollback -Dliquibase.rollbackTag=version_0.5.0
   ```
 
-## Configuration ChangeSet
+## \* Configuration ChangeSet
 
 ### ChangeSet
 
@@ -248,7 +258,7 @@ liquibase:
   </tbody>
 </table>### `Rollback`划重点
 
-在changeSet下有一个非常重要的标签，rollback；它定义了回滚语句
+在changeSet下有一个非常重要的标签，rollback；它定义了回滚语句。
 
 
 
@@ -634,6 +644,40 @@ liquibase {
 ```
 
 ## Q&A
+
+### **如何在Development、Test、CI&CD、Production等环境下，选择性使用`Liquibase`？**
+
+**只需要在@configuration 配置一套关于所在环境决定开启Liquibase即可，代码如下：**
+
+{% code-tabs %}
+{% code-tabs-item title="LiquibaseSimpleConfiguration.java" %}
+```java
+@Configuration
+public class LiquibaseSimpleConfiguration {
+    private final Logger log = LoggerFactory.getLogger(LiquibaseSimpleConfiguration.class);
+    private final Environment env;
+    public LiquibaseSimpleConfiguration(Environment env) {
+        this.env = env;
+    }
+
+    @Bean
+    public SpringLiquibase liquibase(DataSource dataSource) {
+        SpringLiquibase liquibase = new SpringLiquibase();
+        liquibase.setDataSource(dataSource);
+        liquibase.setChangeLog("classpath:config/liquibase/master.xml");
+        liquibase.setDropFirst(false);  // 是否先 drop schema（默认 false）
+        if (env.acceptsProfiles(SPRING_PROFILE_NO_LIQUIBASE)) { //判断环境变量
+            liquibase.setShouldRun(false); //是否关闭Liquibase
+        } else {
+            liquibase.setShouldRun(true);
+            log.debug("Configuring Liquibase");
+        }
+        return liquibase;
+    }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### CI&CD 如果与生产环境不同该如何处理？
 
