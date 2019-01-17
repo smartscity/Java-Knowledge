@@ -67,10 +67,16 @@
 
 ## Storage
 
-* [MySQL](storage/5.1-mysql.md)
-* [5.2、MongoDB](storage/5.2-mongodb.md)
+* [OLTP](storage/oltp/README.md)
+  * [MySQL](storage/oltp/5.1-mysql.md)
+* [OLAP](storage/olap/README.md)
+  * [MongoDB](storage/olap/5.2-mongodb.md)
+* [Time Series Database](storage/time-series-database.md)
+* [Graph Databases](storage/graph-databases/README.md)
+  * [Neo4j](storage/graph-databases/neo4j.md)
 * [ClickHouse](storage/shu-ju-ku.md)
-* [Neo4j](storage/neo4j.md)
+* [HTAP](storage/htap/README.md)
+  * [TiDB](storage/htap/tidb.md)
 
 ## Framework
 
