@@ -2,7 +2,7 @@
 
 ### **JVM Architecture Diagram**
 
-![](../../.gitbook/assets/image%20%284%29.png)
+![](../../.gitbook/assets/image%20%285%29.png)
 
 ### JVM 按占用内存位置划分为四个区域
 
