@@ -75,8 +75,11 @@
 * [Graph Databases](storage/graph-databases/README.md)
   * [Neo4j](storage/graph-databases/neo4j.md)
 * [ClickHouse](storage/shu-ju-ku/README.md)
+  * [Untitled](storage/shu-ju-ku/untitled.md)
   * [安装部署](storage/shu-ju-ku/an-zhuang-bu-shu.md)
   * [Setup Cluster](storage/shu-ju-ku/setup-cluster.md)
+  * [System Log Cluster](storage/shu-ju-ku/system-log-cluster.md)
+  * [业务日志](storage/shu-ju-ku/ye-wu-ri-zhi.md)
   * [集群操作](storage/shu-ju-ku/ji-qun-cao-zuo.md)
   * [Q&A](storage/shu-ju-ku/q-and-a.md)
 * [HTAP](storage/htap/README.md)
@@ -141,4 +144,8 @@
 ## BIG DATA
 
 * [数据仓库 数据集市 数据湖 数据江 数据沼泽](big-data/shu-ju-cang-ku-shu-ju-ji-shi-shu-ju-hu-shu-ju-jiang-shu-ju-zhao-ze.md)
+
+## Project Design
+
+* [Museum Design](project-design/museum-design.md)
 

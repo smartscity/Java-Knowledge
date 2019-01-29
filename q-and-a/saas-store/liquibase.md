@@ -525,7 +525,7 @@ liquibase:
 * [download liquibase.jar](http://download.liquibase.org/download)
 * view `liquibase`
 
-![](../../.gitbook/assets/image%20%2820%29.png)
+![](../../.gitbook/assets/image%20%2822%29.png)
 
 * **将已有数据库结构生成**`liquibase.xml`
 
@@ -561,7 +561,7 @@ liquibase:
 
 * 图示
 
-![](../../.gitbook/assets/image%20%2847%29.png)
+![](../../.gitbook/assets/image%20%2850%29.png)
 
 ### 比较 `Diff`
 
@@ -581,7 +581,7 @@ liquibase:
 
 * 结果如下图所示，红框内为变化量：
 
-![](../../.gitbook/assets/image%20%2840%29.png)
+![](../../.gitbook/assets/image%20%2843%29.png)
 
 ### More Command
 

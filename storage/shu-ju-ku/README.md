@@ -2,7 +2,7 @@
 
 ### 架构图
 
-![](../../.gitbook/assets/image%20%2834%29.png)
+![](../../.gitbook/assets/image%20%2837%29.png)
 
 
 
@@ -10,21 +10,21 @@
 
 
 
-![](../../.gitbook/assets/image%20%2824%29.png)
+![](../../.gitbook/assets/image%20%2826%29.png)
 
 vs
 
-![](../../.gitbook/assets/image%20%2837%29.png)
+![](../../.gitbook/assets/image%20%2840%29.png)
 
 > [https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)
 
-![](../../.gitbook/assets/image%20%2839%29.png)
+![](../../.gitbook/assets/image%20%2842%29.png)
 
 {% embed url="https://www.altinity.com/blog/2018/5/10/circular-replication-cluster-topology-in-clickhouse" %}
 
 
 
-![](../../.gitbook/assets/image%20%2842%29.png)
+![](../../.gitbook/assets/image%20%2845%29.png)
 
 {% embed url="https://medium.com/avitotech/metrics-storage-how-we-migrated-from-graphite-whisper-to-graphite-clickhouse-a8299e5b057" %}
 
@@ -42,7 +42,7 @@ vs
 
 ### 引擎
 
-![](../../.gitbook/assets/image%20%2835%29.png)
+![](../../.gitbook/assets/image%20%2838%29.png)
 
 > [https://www.slideshare.net/Altinity/migration-to-clickhouse-practical-guide-by-alexander-zaitsev](https://www.slideshare.net/Altinity/migration-to-clickhouse-practical-guide-by-alexander-zaitsev)
 
