@@ -76,6 +76,7 @@
   * [Neo4j](storage/graph-databases/neo4j.md)
 * [ClickHouse](storage/shu-ju-ku/README.md)
   * [Untitled](storage/shu-ju-ku/untitled.md)
+  * [Untitled](storage/shu-ju-ku/untitled-1.md)
   * [安装部署](storage/shu-ju-ku/an-zhuang-bu-shu.md)
   * [Setup Cluster](storage/shu-ju-ku/setup-cluster.md)
   * [System Log Cluster](storage/shu-ju-ku/system-log-cluster.md)
