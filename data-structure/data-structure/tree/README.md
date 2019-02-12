@@ -27,7 +27,7 @@ description: Root Branch Leaf （ 根 枝 叶）
   * \*\*\*\*
 * **图示**
 
-![](../../../.gitbook/assets/image%20%2831%29.png)
+![](../../../.gitbook/assets/image%20%2832%29.png)
 
 #### B+ Tree
 
@@ -37,7 +37,7 @@ description: Root Branch Leaf （ 根 枝 叶）
   * 适合范围查询
 * **图示**
 
-![](../../../.gitbook/assets/image%20%2835%29.png)
+![](../../../.gitbook/assets/image%20%2836%29.png)
 
 
 

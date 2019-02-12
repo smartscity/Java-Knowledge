@@ -12,7 +12,7 @@
 * **期望偏好色调、色系如果有告诉我，没有我帮你设计？**
 * **LOGO 是这个吗，需要原图**
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2828%29.png)
 
 * **以下系统范围是否全面？**
 
@@ -71,7 +71,7 @@
 
 
 
-![](../.gitbook/assets/image%20%2814%29.png)
+![](../.gitbook/assets/image%20%2815%29.png)
 
 * PC端
 

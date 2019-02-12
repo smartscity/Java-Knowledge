@@ -116,13 +116,15 @@
 
 ## Operation & Monitoring
 
-* [Monitor Service](monitor/monitor-service.md)
-* [DevOps](monitor/devops.md)
-* [Kubernetes 介绍](monitor/kubernetes-an-zhuang/README.md)
-  * [Minikube](monitor/kubernetes-an-zhuang/minikube.md)
-  * [Kubeadm](monitor/kubernetes-an-zhuang/kubeadm.md)
+* [Container](monitor/container/README.md)
+  * [Kubernetes 介绍](monitor/container/kubernetes-an-zhuang/README.md)
+    * [Minikube](monitor/container/kubernetes-an-zhuang/minikube.md)
+    * [Kubeadm](monitor/container/kubernetes-an-zhuang/kubeadm.md)
+* [Monitoring Platform](monitor/monitor-service.md)
 * [自动化运维](monitor/zi-dong-hua-yun-wei/README.md)
+  * [Rancher](monitor/zi-dong-hua-yun-wei/rancher.md)
   * [Ansible](monitor/zi-dong-hua-yun-wei/ansible.md)
+* [AIOps](monitor/devops.md)
 
 ## Paper Writing
 
