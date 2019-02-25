@@ -68,6 +68,9 @@
 ## Storage
 
 * [OLTP](storage/oltp/README.md)
+  * [Oracle](storage/oltp/oracle/README.md)
+    * [Install 12c](storage/oltp/oracle/install-12c.md)
+    * [GoldenGate](storage/oltp/oracle/goldengate.md)
   * [MySQL](storage/oltp/5.1-mysql.md)
 * [OLAP](storage/olap/README.md)
   * [MongoDB](storage/olap/5.2-mongodb.md)
@@ -76,6 +79,7 @@
   * [Neo4j](storage/graph-databases/neo4j.md)
 * [ClickHouse](storage/shu-ju-ku/README.md)
   * [Untitled](storage/shu-ju-ku/untitled.md)
+  * [Untitled](storage/shu-ju-ku/untitled-2.md)
   * [Untitled](storage/shu-ju-ku/untitled-1.md)
   * [安装部署](storage/shu-ju-ku/an-zhuang-bu-shu.md)
   * [Setup Cluster](storage/shu-ju-ku/setup-cluster.md)
