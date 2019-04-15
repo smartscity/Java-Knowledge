@@ -77,6 +77,8 @@ Filebeat  Hangout
 5. 规则引擎、告警通知，支持微信、SMS、Email、OpenChat、村口大喇叭
 6. 无嵌入，不影响业务、NIAO么悄的就把数据归集起来
 7. 自动服务发现
+8. **发现性能瓶颈原因能力**
+9. **发现内存溢出风险能力**
 
 #### 现在的架构
 
@@ -95,11 +97,33 @@ Metrics 采集域，通过注册中心自动发现微服务集群Application，�
 
 #### Behavior Collection Domain
 
-行为采集域，采用低功耗的Filebeat采集日志
+行为采集域，采用低功耗的Filebeat采集日志，它在本地文件中记录了日志文件被读取到的位置，完美解决了升级重启时丢失数据的问题；Filebeat将采集到的数据发送到Kafka Cluster
 
 #### Link Tracking Domain
 
+敬请期待……
+
 #### Time Series Storage
+
+时序存储引擎，负责存储采集到的Metrics数据；每秒一个点，每次获取数百个微服务节点；
+
+每天处理量：11396\(字节\) \* 86400/5\(5秒一个采集一个点\) = 939MB \* 100\(app\) = 91GB；
+
+要求：
+
+* 无缝接管Prometheus
+* 大数据存储能力
+* 大数据实时分析能力
+
+
+
+
+
+
+
+
+
+
 
 #### Events Storage
 
@@ -107,13 +131,11 @@ Metrics 采集域，通过注册中心自动发现微服务集群Application，�
 
 #### Output Domain
 
+输出域，目前支持JVM Graph、Thread Graph、CPU Graph、Events等
 
 
 
 
-#### 存储域
-
-链路域
 
 
 
@@ -123,7 +145,11 @@ Metrics 采集域，通过注册中心自动发现微服务集群Application，�
 
 ## 要去哪嘎达
 
+我们下一步要做的事：
 
+* 支持Docker、K8S、Rancher等容器内的事件采集
+* 支持自定义仪表配置
+* 支持更多中间件监控
 
 ## 总结
 
