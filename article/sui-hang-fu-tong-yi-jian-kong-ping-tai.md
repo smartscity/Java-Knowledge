@@ -24,17 +24,96 @@ description: 李云龙 现任随行付平台研发架构师，微服务与容器
 
 ### 2.0 基于Zabbix架构
 
-![](../.gitbook/assets/image.png)
+![](../.gitbook/assets/image%20%281%29.png)
 
 
 
 ### 3.0 基于ELK架构
 
-![](../.gitbook/assets/image%20%281%29.png)
+#### ELK 是什么
+
+ELK是**ElasticSearch**、**Logstash** 和 **Kibana**的简写，是Elastic公司开源的一套完整的日志收集、分析存储、展示等解决方案
+
+* **ElasticSearch** 实时的分布式搜索和分析引擎，它使用Lucene实现全文索引，结构化搜索
+* **Logstash** 实时传输能力的数据收集引擎\(有解析能力\)
+* **Kibana** 可视化的 Web 平台，生成各种维度表格、图形
+
+#### ELK 架构图
+
+![](../.gitbook/assets/image%20%282%29.png)
+
+
+
+方案
+
+Flume  Memory Channel OOM  
+
+File Channel  正则解析  CPU Up
+
+Flume Agent + 中间层集中解析  agent 重启丢数据
+
+Logstash（亲儿子） + Kafka  日志解析占用过高资源
+
+Filebeat  Hangout 
+
+
+
+#### 问题
+
+> **巨额投入，10 \* （32U 128G）+ PB 总价70W+ ，有钱也不能这么花，何况资本寒冬**
+
+
+
+
 
 ### 4.0 现在
 
-![](../.gitbook/assets/image%20%282%29.png)
+#### 特点
+
+1. 大，日处理TB级数据量，年PB以上的数据
+2. 快，real-time 显示视图图表，真的很real-time
+3. 全，Events、Metrics、JVM Graph、CPU MEM Graph、TPS&RPS Graph、Business Graph
+4. 向下兼容，兼容过去的架构采集的数据分析
+5. 规则引擎、告警通知，支持微信、SMS、Email、OpenChat、村口大喇叭
+6. 无嵌入，不影响业务、NIAO么悄的就把数据归集起来
+7. 自动服务发现
+
+#### 现在的架构
+
+![](../.gitbook/assets/image%20%283%29.png)
+
+![](../.gitbook/assets/image.png)
+
+#### Metrics Collection Domain
+
+Metrics 采集域，通过注册中心自动发现微服务集群Application，然后采集各个App的metrics信息，我们采用一种取巧的形式，兼容prometheus exposer采集点，之所以这样考虑，因为它是_Google_ BorgMon监控系统的开源版本，在google 开源软件体系被良好的支持，如：K8S。
+
+提供两种方式采集：
+
+* Pull   Metrics 按频次发起请求，采集数据点
+* Push Metrics 在App里主动向Push Gateway 发送测量数据
+
+#### Behavior Collection Domain
+
+行为采集域，采用低功耗的Filebeat采集日志
+
+#### Link Tracking Domain
+
+#### Time Series Storage
+
+#### Events Storage
+
+#### 
+
+#### Output Domain
+
+
+
+
+
+#### 存储域
+
+链路域
 
 
 
