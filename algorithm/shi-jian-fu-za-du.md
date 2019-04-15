@@ -1,10 +1,10 @@
 # 时间复杂度
 
-### 图示
+## 图示
 
-![](../.gitbook/assets/image%20%2852%29.png)
+![](../.gitbook/assets/image-41.png)
 
-### 公式
+## 公式
 
 | 顺序排序 |  |  |
 | :--- | :--- | :--- |
@@ -17,7 +17,7 @@
 | O\(n^k\) | K次方阶 |  |
 | O\(2^n\) | 指数阶 |  |
 
-### 详细介绍
+## 详细介绍
 
 * 常数阶`O(1)`
 
@@ -30,7 +30,7 @@
   ```text
   for(int i = 0; i < n; i++){
       printf("%d ",i);
-  }  
+  }
   ```
 
 * 平方阶`O(n^2)`
@@ -61,7 +61,7 @@
 * k次方阶`O(n^k)`
 * 指数阶`O(2^n)`
 
-### **常用排序算法的时间复杂度**
+## **常用排序算法的时间复杂度**
 
 ```text
       最差时间分析  平均时间复杂度 稳定度     空间复杂度   
@@ -74,7 +74,7 @@
 希尔排序    O        O          不稳定     O(1)
 ```
 
-### **ArrayList vs LinkedList**
+## **ArrayList vs LinkedList**
 
 ```text
                    | Arraylist | LinkedList
@@ -87,9 +87,7 @@
  Iterator.add(E)   |    O(n)   |   O(1)
 ```
 
-
-
-### 参考文献
+## 参考文献
 
 * [https://www.jianshu.com/p/f4cca5ce055a](https://www.jianshu.com/p/f4cca5ce055a)
 

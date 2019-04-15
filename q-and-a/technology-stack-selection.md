@@ -12,9 +12,7 @@
 
 ### 中台网关
 
-中台网关-&gt;服务实例-&gt;     API     -&gt;外部应用
-
-
+中台网关-&gt;服务实例-&gt; API -&gt;外部应用
 
 ## JHipster Full Stack
 
@@ -40,7 +38,7 @@ And what if a single Web page application isn’t enough for your needs?
 
 * Support for the [Thymeleaf](http://www.thymeleaf.org/) template engine, to generate Web pages on the server side
 
-### 服务端技术栈 <a id="technology-stack-on-the-server-side"></a>
+### 服务端技术栈  <a id="technology-stack-on-the-server-side"></a>
 
 A complete [Spring application](https://spring.io/):
 
@@ -129,8 +127,6 @@ Microservices are optional, and fully supported:
 * **JHipster Domain Language（JDL）**
 * **思路**
 
-
-
 ## 总结
 
 **结合目前情况，综合分析能够拿来参考项：**
@@ -139,6 +135,4 @@ Microservices are optional, and fully supported:
 * Metrics for Prometheus
 * ELK 日志分析
 * deploy cloud 
-
-
 

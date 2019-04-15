@@ -1,4 +1,4 @@
 # Micro Service Architecture
 
-![](../../.gitbook/assets/image%20%2829%29.png)
+![](../../.gitbook/assets/image-23.png)
 

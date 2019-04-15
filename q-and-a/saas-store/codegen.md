@@ -15,85 +15,70 @@
   * `AnyBlob` or just `Blob` to create a field of the “any” binary type;
   * `ImageBlob` to create a field meant to be an image.
   * `TextBlob` to create a field for a CLOB \(long text\).
-* 
-```text
-application {
+* \`\`\`text
+
+  application {
+
   config {
+
     baseName mygateway
+
     applicationType gateway
+
     prodDatabaseType mysql
+
     serverPort 10000
+
     buildTool gradle
+
   }
-}
 
-application {
-  config {
-    baseName myapp
-    applicationType microservice
-    prodDatabaseType mysql
-    serverPort 8080
-    buildTool gradle
   }
-  entities Custom except C, D
-}
 
+application { config { baseName myapp applicationType microservice prodDatabaseType mysql serverPort 8080 buildTool gradle } entities Custom except C, D }
 
+DEFAULT\_MIN\_LENGTH = 1 DEFAULT\_MAX\_LENGTH = 32 MAX\_LENGTH\_MOBILE = 11 PATTERN\_MOBILE = 888 MAX\_LENGTH\_LS = 64 MAX\_LENGTH\_YLES = 1024 MAX\_LENGTH\_ELSB = 2048 DEFAULT\_MIN\_BYTES = 20 DEFAULT\_MAX\_BYTES = 4096 DEFAULT\_MIN = 0 DEFAULT\_MAX = 100
 
-DEFAULT_MIN_LENGTH 	= 1
-DEFAULT_MAX_LENGTH 	= 32
-MAX_LENGTH_MOBILE	= 11
-PATTERN_MOBILE 		= 888
-MAX_LENGTH_LS 		= 64
-MAX_LENGTH_YLES 	= 1024
-MAX_LENGTH_ELSB 	= 2048
-DEFAULT_MIN_BYTES   = 20
-DEFAULT_MAX_BYTES   = 4096
-DEFAULT_MIN         = 0
-DEFAULT_MAX         = 100
+/\*\*
 
-/**
- * Class comments.
- * @author The Suixingpay team.
- */
-entity Custom {
-    /** A required attribute , 这个注解会生成swagger notes里 */
-	username String required minlength(MAX_LENGTH_MOBILE) maxlength(MAX_LENGTH_MOBILE) pattern(/^1[1,2,3,4,5,6,7,8,9]\d{9}$/)
-    password String required minlength(8) maxlength(MAX_LENGTH_LS)
-    mobile String required minlength(MAX_LENGTH_MOBILE) maxlength(MAX_LENGTH_MOBILE) pattern(/^1[1,2,3,4,5,6,7,8,9]\d{9}$/)
-    passwordStrength Integer required min(DEFAULT_MIN) max(DEFAULT_MAX)
-    nickName String minlength(4) maxlength(DEFAULT_MAX_LENGTH)
-    fullName String minlength(2) maxlength(DEFAULT_MAX_LENGTH)
-    email String minlength(8) maxlength(MAX_LENGTH_LS)
-    idType Integer
-}
+* Class comments.
+* @author The Suixingpay team.
 
-enum Language {
-    FRENCH, ENGLISH, SPANISH
-}
-entity Book {
-  title String required,
-  description String,
-  language Language
-}
-entity Author {
-  name String required
-}
+  \*/
 
-relationship OneToMany {
-  Author{book} to Book{writer(name) required}
-}
+  entity Custom {
 
----
-relationship (OneToMany | ManyToOne | OneToOne | ManyToMany) {
-  <from entity>[{<relationship name>[(<display field>)]}] to <to entity>[{<relationship name>[(<display field>)]}]
-}
----
+   /_\* A required attribute , 这个注解会生成swagger notes里_ /
 
-dto Book,Author with mapstruct except Custom
-service * with serviceClass except Custom
-paginate Book,Custom with pager
-```
+   username String required minlength\(MAX\_LENGTH\_MOBILE\) maxlength\(MAX\_LENGTH\_MOBILE\) pattern\(/^1\[1,2,3,4,5,6,7,8,9\]\d{9}$/\)
+
+   password String required minlength\(8\) maxlength\(MAX\_LENGTH\_LS\)
+
+   mobile String required minlength\(MAX\_LENGTH\_MOBILE\) maxlength\(MAX\_LENGTH\_MOBILE\) pattern\(/^1\[1,2,3,4,5,6,7,8,9\]\d{9}$/\)
+
+   passwordStrength Integer required min\(DEFAULT\_MIN\) max\(DEFAULT\_MAX\)
+
+   nickName String minlength\(4\) maxlength\(DEFAULT\_MAX\_LENGTH\)
+
+   fullName String minlength\(2\) maxlength\(DEFAULT\_MAX\_LENGTH\)
+
+   email String minlength\(8\) maxlength\(MAX\_LENGTH\_LS\)
+
+   idType Integer
+
+  }
+
+enum Language { FRENCH, ENGLISH, SPANISH } entity Book { title String required, description String, language Language } entity Author { name String required }
+
+relationship OneToMany { Author{book} to Book{writer\(name\) required} }
+
+relationship \(OneToMany \| ManyToOne \| OneToOne \| ManyToMany\) { \[{\[\(\)\]}\] to \[{\[\(\)\]}\]
+
+## }
+
+dto Book,Author with mapstruct except Custom service \* with serviceClass except Custom paginate Book,Custom with pager
+
+\`\`\`
 
 ### 解析器
 

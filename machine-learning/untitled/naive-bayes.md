@@ -12,7 +12,7 @@ description: >-
 
   \*\*\*\*
 
-  ![](../../.gitbook/assets/image%20%2847%29.png)![](../../.gitbook/assets/image%20%2850%29.png)
+  ![](../../.gitbook/assets/image-36.png)![](../../.gitbook/assets/image-39.png)
 
 * **公式**
 
@@ -24,14 +24,6 @@ description: >-
   * 所需参数较少
   * 对缺失数据不敏感
   * 理论误差小，实际误差大，因为NBC模型假设属性之间相互独立，这个假设在实际应用中往往是不成立的，这给NBC模型的正确分类带来了一定影响。
-
-
-
-
-
-
-
-
 
 > 参考文献
 >

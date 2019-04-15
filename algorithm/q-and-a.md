@@ -1,6 +1,6 @@
 # Q&A
 
-### 求一个数的平方根
+## 求一个数的平方根
 
 * [牛顿-拉夫逊方法（Newton-Raphson method）](https://blog.csdn.net/xinm1001/article/details/52938113)
 * 第二种方法
@@ -36,6 +36,4 @@ public static BigDecimal sqrtRoot(BigDecimal m) {
 
 * 参考文献
   * [https://blog.csdn.net/qq\_17776287/article/details/53762265](https://blog.csdn.net/qq_17776287/article/details/53762265) 
-
-
 

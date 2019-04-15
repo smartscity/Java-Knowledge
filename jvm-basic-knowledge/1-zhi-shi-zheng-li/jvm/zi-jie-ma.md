@@ -1,6 +1,6 @@
 # 字节码
 
-### 字节码 Code 示例：
+## 字节码 Code 示例：
 
 ```java
 public int greaterThen(int intOne, int intTwo) {
@@ -12,7 +12,7 @@ public int greaterThen(int intOne, int intTwo) {
 }
 ```
 
-### 执行 `javap` 之后，得到字节码如下：
+## 执行 `javap` 之后，得到字节码如下：
 
 ```java
 0: iload_1
@@ -24,7 +24,7 @@ public int greaterThen(int intOne, int intTwo) {
 8: ireturn
 ```
 
-### 字节码含义如下：
+## 字节码含义如下：
 
 | 字节码 | 含义 |
 | :--- | :--- |

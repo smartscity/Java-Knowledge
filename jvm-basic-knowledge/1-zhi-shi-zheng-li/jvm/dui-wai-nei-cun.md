@@ -1,27 +1,22 @@
 # 堆外内存
 
-### 前传
+## 前传
 
 * 查看GC参数
+* `-verbose:gc -XX:HeapDumpPath=. -Xloggc:gc.log -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:+DisableExplicitGC -XX:+PrintTenuringDistribution`
 
-
-
-  * `-verbose:gc -XX:HeapDumpPath=. -Xloggc:gc.log -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:+DisableExplicitGC -XX:+PrintTenuringDistribution`
-
-### 堆外内存
+## 堆外内存
 
 * Direct Memory
 * 堆内存有JVM自己管理，而堆外内存只有 full gc触发时才会被GC，所以我们需要手动做适当的内存回收工作。
 
-
-
-### 回收机制
+## 回收机制
 
 * 受GC控制
 
-### **DirectByteBuffer**
+## **DirectByteBuffer**
 
-### **代码实例**
+## **代码实例**
 
 ```java
 public class NonHeapTest {
@@ -30,7 +25,7 @@ public class NonHeapTest {
            ((DirectBuffer)byteBuffer).cleaner().clean();  
         }  
   }  
-    
+
     public static void sleep(long i) {  
         try {  
               Thread.sleep(i);  

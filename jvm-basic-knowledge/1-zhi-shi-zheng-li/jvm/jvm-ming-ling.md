@@ -1,6 +1,6 @@
 # JVM 命令
 
-### jps
+## jps
 
 * jvm进程列表
 
@@ -10,7 +10,7 @@
   6005 Jps
   ```
 
-### jstat
+## jstat
 
 * 查看\[pid\] jvm 内存占用、GC频次
 
@@ -23,7 +23,7 @@
   11776.0 13312.0  0.0   12953.8 209920.0 21041.4   125952.0   30379.6   56064.0 54971.2 6912.0 6571.4     17    0.249   2      0.216    0.465
   ```
 
-### jstack
+## jstack
 
 * 查看jvm线程情况
 
@@ -31,7 +31,7 @@
   jstack -l [pid]
   ```
 
-### jmap
+## jmap
 
 * 内存dump工具
 * `jmap -heap [pid]`查看堆详细配置情况
@@ -102,7 +102,7 @@
 
 * `jmap -dump:format=b,file=文件名 [pid]`s下载当前堆状况
 
-### jhat
+## jhat
 
 * jhat\(JVM Heap Analysis Tool\)命令是与jmap搭配使用，用来分析jmap生成的dump
 * **注意：不要在生产服务器执行**

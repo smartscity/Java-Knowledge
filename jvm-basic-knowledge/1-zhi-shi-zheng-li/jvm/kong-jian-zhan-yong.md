@@ -1,6 +1,6 @@
 # 空间占用
 
-### 空间占用表
+## 空间占用表
 
 * 基于 SUM Hotspot JVM分析
 * 基于32位
@@ -14,7 +14,7 @@
 | double\long | 8 bytes | 64 bit |
 | header | 8 bytes | 64 bit |
 
-### 示例
+## 示例
 
 ```java
 public class A {   
@@ -25,8 +25,6 @@ public class A {
     Object e;   
 }
 ```
-
-
 
 | 属性 | 需要字节数 | 累计字节数 |
 | :--- | :--- | :--- |
@@ -42,9 +40,7 @@ public class A {
 
   可以用jmap看一下这个计算是否准确
 
-
-
-### 换算表
+## 换算表
 
 |  |  |
 | :--- | :--- |

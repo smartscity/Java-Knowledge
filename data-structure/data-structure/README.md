@@ -1,16 +1,16 @@
 # Data Structure
 
-### Array
+## Array
 
-### Heap
+## Heap
 
-### Queue
+## Queue
 
-### LinkedList
+## LinkedList
 
-### Dequeue
+## Dequeue
 
-### Tree
+## Tree
 
 * 二叉树遍历方法：
   * 递归

@@ -1,6 +1,6 @@
 # Test & QA
 
-### 黑少报告（测试报告）
+## 黑少报告（测试报告）
 
 * 单元测试 报告 
 * 性能测试 报告
@@ -11,18 +11,9 @@
 
   ```text
   [![Build Status][travis-image]][travis-url] [![Maven Central][maven-image]][maven-url]
-
-  [travis-image]: https://travis-ci.org/jhipster/jhipster.svg?branch=master
-  [travis-url]: https://travis-ci.org/jhipster/jhipster
-
-  [maven-image]: https://maven-badges.herokuapp.com/maven-central/io.github.jhipster/jhipster-parent/badge.svg
-  [maven-url]: https://maven-badges.herokuapp.com/maven-central/io.github.jhipster/jhipster-parent
-  [jhipster-url]: https://www.jhipster.tech/
   ```
 
-
-
-### 黑少保障（QA）
+## 黑少保障（QA）
 
 * 想想
 

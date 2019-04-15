@@ -13,11 +13,9 @@ description: Root Branch Leaf （ 根 枝 叶）
   * **在查询时会产生很多磁盘IO，因为遍历次数过多**
 * **图示**
 
-![](../../../.gitbook/assets/image%20%288%29.png)
+![](../../../.gitbook/assets/image-7.png)
 
-* 
-#### B Tree
-
+* **B Tree**
 * **特点**
   * 每个节点最多可以有M个叉
   * 所有节点都存储数据
@@ -27,9 +25,9 @@ description: Root Branch Leaf （ 根 枝 叶）
   * \*\*\*\*
 * **图示**
 
-![](../../../.gitbook/assets/image%20%2832%29.png)
+![](../../../.gitbook/assets/image-26.png)
 
-#### B+ Tree
+### B+ Tree
 
 * **特点**
   * 与B Tree区别在于叶子之间增加了链表
@@ -37,11 +35,9 @@ description: Root Branch Leaf （ 根 枝 叶）
   * 适合范围查询
 * **图示**
 
-![](../../../.gitbook/assets/image%20%2836%29.png)
+![](../../../.gitbook/assets/image-30.png)
 
-
-
-#### 总结
+### 总结
 
 * 数据库索引用于加速查询
 * 虽然哈希索引是O\(1\)，树索引是O\(log\(n\)\)，但SQL有很多“有序”需求，故数据库使用树型索引
@@ -57,8 +53,6 @@ description: Root Branch Leaf （ 根 枝 叶）
 \(3\)索引本身占用的内存很小；
 
 \(4\)能够很好的支持单点查询，范围查询，有序性查询；
-
-
 
 > 参考文献
 >

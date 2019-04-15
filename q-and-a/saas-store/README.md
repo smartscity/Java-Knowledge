@@ -1,6 +1,6 @@
 # SaaS Store
 
-### [Codegen](https://book.smartscity.com/q-and-a/saas-store/codegen)
+## [Codegen](https://book.smartscity.com/q-and-a/saas-store/codegen)
 
 * **扩展支持的组件**
   * \*\*\*\*[Angular](https://angular.io/) or [React](https://reactjs.org/) or Vuejs
@@ -15,7 +15,7 @@
   * 国际化
 * **建议数据库脚本使用** [**Liquibase**](http://www.liquibase.org/)\*\*\*\*
 
-### [Building](https://book.smartscity.com/q-and-a/saas-store/building)
+## [Building](https://book.smartscity.com/q-and-a/saas-store/building)
 
 * Code quality 
   * 代码质量&评分
@@ -25,7 +25,7 @@
 * build管理
 * 代码评分
 
-### [Test & QA](https://book.smartscity.com/q-and-a/saas-store/test-and-qa)
+## [Test & QA](https://book.smartscity.com/q-and-a/saas-store/test-and-qa)
 
 * 单元测试 报告 
 * 性能测试 报告
@@ -34,23 +34,14 @@
 
   ```text
   [![Build Status][travis-image]][travis-url] [![Maven Central][maven-image]][maven-url]
-
-  [travis-image]: https://travis-ci.org/jhipster/jhipster.svg?branch=master
-  [travis-url]: https://travis-ci.org/jhipster/jhipster
-
-  [maven-image]: https://maven-badges.herokuapp.com/maven-central/io.github.jhipster/jhipster-parent/badge.svg
-  [maven-url]: https://maven-badges.herokuapp.com/maven-central/io.github.jhipster/jhipster-parent
-  [jhipster-url]: https://www.jhipster.tech/
   ```
 
-
-
-### [Deploy](https://book.smartscity.com/q-and-a/saas-store/deploy)
+## [Deploy](https://book.smartscity.com/q-and-a/saas-store/deploy)
 
 * 版本管理
 * 镜像管理
 
-### [Production](https://book.smartscity.com/q-and-a/saas-store/production)
+## [Production](https://book.smartscity.com/q-and-a/saas-store/production)
 
 * Monitor
   * 硬件使用情况

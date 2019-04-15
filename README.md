@@ -2,7 +2,7 @@
 
 ## About Me
 
-## JVM Basic knowledge 
+## JVM Basic knowledge
 
 ### Data Structure
 

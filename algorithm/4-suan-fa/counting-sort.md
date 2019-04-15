@@ -4,7 +4,7 @@ description: 计数排序算法
 
 # Counting Sort
 
-#### 基本属性 <a id="ji-ben-shu-xing"></a>
+## 基本属性  <a id="ji-ben-shu-xing"></a>
 
 * **空间复杂度**
   * O\(MAX-MIN\) 用空间换时间
@@ -46,7 +46,5 @@ public static void main(String[] args) {
 
 ![](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LPU-bbQ7pwQnDAbfs6g%2F-LPV2TwfoPmYqpNXTDlM%2F-LPV8yA-25qFOcEx5vnT%2Fimage.png?alt=media&token=6a4446f1-5d2e-453a-82db-e511d0143dda)
 
-![](../../.gitbook/assets/image%20%2830%29.png)
-
-
+![](../../.gitbook/assets/image-24.png)
 

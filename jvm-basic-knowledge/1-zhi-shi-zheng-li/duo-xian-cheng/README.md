@@ -4,7 +4,7 @@ description: '123123'
 
 # 多线程
 
-### 介绍
+## 介绍
 
 * PV=page view 
 * TPS=transactions per second 
@@ -12,7 +12,7 @@ description: '123123'
 * RPS=requests per second
 * RPS=并发数/平均响应时间
 
-### 配置方案
+## 配置方案
 
 * **高并发、任务时间短**
   * CPU 核数 +1，减少线程上下文的切换
@@ -25,13 +25,13 @@ description: '123123'
   * 线程配置考虑（上面）
   * 拆分业务、解耦业务
 
-### CAS
+## CAS
 
 * ABA 用 **AtomicStampedReference** 解决 增加version
 * **循环时间长开销大**。自旋CAS如果长时间不成功，会给CPU带来非常大的执行开销。
 * **只能保证一个共享变量的原子操作**。AtomicReference类来保证引用对象之间的原子性，可以把多个变量放在一个对象里来进行CAS操作。
 
-#### Volatile
+### Volatile
 
 * 内存的可见性；（主存，工作内存）
   * 被 volatile 关键字修饰的变量，当线程要对这个变量执行的写操作，都不会写入本地缓存，而是直接刷入主内存中。当线程读取被 volatile 关键字修饰的变量时，也是直接从主内存中读取。（简单的说，一个线程修改的状态对另一个线程是可见的）。注意：volatile 不能保证原子性。
@@ -40,7 +40,7 @@ description: '123123'
   * 1
 * [https://www.jianshu.com/p/ac6b889e73c5?utm\_campaign=maleskine&utm\_content=note&utm\_medium=seo\_notes&utm\_source=recommendation](https://www.jianshu.com/p/ac6b889e73c5?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
 
-#### **AQS** （AbstractQueuedSynchronizer）
+### **AQS** （AbstractQueuedSynchronizer）
 
 * 独占锁
   * 包含：
@@ -50,7 +50,7 @@ description: '123123'
     ```text
     if(tryAcquire()){       //试着获取锁
       if(acquireQueued()){  //等待过程中被中断过，则返回true，否则返回false
-    
+
       }
       selfInterrupt();      //如果线程在等待过程中被中断过，它是不响应的。只是获取资源后才再进行自我中断selfInterrupt()，将中断补上
       tryRelease();
@@ -78,7 +78,7 @@ description: '123123'
     }
     ```
 
-#### 线程池
+### 线程池
 
 * ThreadPoolExecutor
 * CachedThreadPool
@@ -96,7 +96,7 @@ description: '123123'
 * ​
 * [https://www.jianshu.com/p/ac6b889e73c5?utm\_campaign=maleskine&utm\_content=note&utm\_medium=seo\_notes&utm\_source=recommendation](https://www.jianshu.com/p/ac6b889e73c5?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
 
-#### ThreadLocal
+### ThreadLocal
 
 * 使用场景
   * 数据中间件开发，用来解决**数据库连接**、**Session管理**等
@@ -138,7 +138,7 @@ description: '123123'
 * 实现原理
   * ThreadLocalMap Entry WeekReference 弱引用
 
-#### Semaphore 信号量
+### Semaphore 信号量
 
 * 使用场景
   * 食堂有5个窗口
@@ -150,7 +150,7 @@ description: '123123'
   * 无法控制速率
 * [https://baijiahao.baidu.com/s?id=1584535466197089630&wfr=spider&for=pc](https://baijiahao.baidu.com/s?id=1584535466197089630&wfr=spider&for=pc)
 
-#### CountDownLatch
+### CountDownLatch
 
 * 是什么
   * 这个类能够使一个线程等待其他线程完成各自的工作后再执行。例如，应用程序的主线程希望在负责启动框架服务的线程已经启动所有的框架服务之后再执行。
@@ -169,7 +169,7 @@ description: '123123'
   * **死锁检测：**一个非常方便的使用场景是，你可以使用n个线程访问共享资源，在每次测试阶段的线程数目是不同的，并尝试产生死锁。
 * 资料来源 [http://www.importnew.com/15731.html](http://www.importnew.com/15731.html)
 
-#### ReentrantLock
+### ReentrantLock
 
 * 需要在 finally 释放锁
 * 优势
@@ -183,15 +183,15 @@ description: '123123'
 
 * [https://my.oschina.net/noahxiao/blog/101558](https://my.oschina.net/noahxiao/blog/101558)
 
-#### Synchronized
+### Synchronized
 
 * 公平锁
 
-#### 比较
+### 比较
 
 Atomic （一个数量级） -&gt; ReentrantLock 4~5倍 -&gt; Synchronized -&gt; \(慢10~20%\) Semaphore
 
-#### AbstractQueuedSynchronizer AQS
+### AbstractQueuedSynchronizer AQS
 
 * 提供一个状态值，getState\(\), setState\(\), compareAndSetState\(\)，实现类可根据状态值来决定是否阻塞当前线程，或者唤醒一个正在等待的线程。
 * 对外提供acquire\(\), acquireShared\(\) 来获取状态，如果获取失败，当前线程将被阻塞。
@@ -201,34 +201,34 @@ Atomic （一个数量级） -&gt; ReentrantLock 4~5倍 -&gt; Synchronized -&gt;
 
 有了这些操作，我们就可以很方便的自己来实现ReentrantLock ,Semaphore, CountDownLatch这些类了，读者可以先自己思考一下这些类的实现思路，也可以直接阅读源码看下大神是怎么做的。
 
-#### Linux 环境下如何查找哪个线程使用 CPU 最长
+### Linux 环境下如何查找哪个线程使用 CPU 最长
 
 * 获取项目的pid，jps或者ps -ef \| grep java
 * top -H -p pid，顺序不能改变
 
   这样就可以打印出当前的项目，每条线程占用CPU时间的百分比。注意这里打出的是LWP，也就是操作系统原生线程的线程号。打出来的LWP是十进制的，"jps pid"打出来的本地线程号是十六进制的，转换一下，就能定位到占用CPU高的线程的当前线程堆栈了。使用"top -H -p pid"+"jps pid"可以很容易地找到某条占用CPU高的线程的线程堆栈，从而定位占用CPU高的原因，一般是因为不当的代码操作导致了死循环。作者：Java旅行者链接：[https://www.jianshu.com/p/ac6b889e73c5](https://www.jianshu.com/p/ac6b889e73c5)來源：简书著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-#### Thread.sleep\(0\) 的作用是什么（要弄懂）
+### Thread.sleep\(0\) 的作用是什么（要弄懂）
 
 由于Java采用抢占式的线程调度算法，因此可能会出现某条线程常常获取到CPU控制权的情况，为了让某些优先级比较低的线程也能获取到CPU控制权，可以使用Thread.sleep\(0\)手动触发一次操作系统分配时间片的操作，这也是平衡CPU控制权的一种操作。作者：Java旅行者链接：[https://www.jianshu.com/p/ac6b889e73c5](https://www.jianshu.com/p/ac6b889e73c5)來源：简书著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
-#### 高并发、任务时间短
+### 高并发、任务时间短
 
 * CPU 核数 +1，减少线程上下文的切换
 
-#### 并发不高、任务时间长
+### 并发不高、任务时间长
 
 * IO密集型 加大线程数
 * 计算密集型 减少线程数 降低上线文切换
 
-#### 高并发、任务时间长
+### 高并发、任务时间长
 
 * 考虑缓存
 * 增加处理能力（增加计算机）
 * 线程配置考虑（上面）
 * 拆分业务、解耦业务
 
-#### Fork/Join 框架的理解
+### Fork/Join 框架的理解
 
 [http://www.infoq.com/cn/articles/fork-join-introductionFork/Join](http://www.infoq.com/cn/articles/fork-join-introductionFork/Join)
 

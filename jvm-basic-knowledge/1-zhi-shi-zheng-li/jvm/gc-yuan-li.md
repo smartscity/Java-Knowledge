@@ -1,27 +1,27 @@
 # GC 原理
 
-### 查看GC日志
+## 查看GC日志
 
 * `-verbose:gc -XX:HeapDumpPath=. -Xloggc:gc.log -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:+DisableExplicitGC -XX:+PrintTenuringDistribution`
 * \`\`
 
-### 如何分配
+## 如何分配
 
 * 对象优先出生在 Eden 区
 * 当Eden 即便经过`Minor gc` 也装不下 `Big Object` 或者超过配置 `--XX:PretenureSizeThreshold=3M`那么它直接进入 Old 区
 
-### 分配流程
+## 分配流程
 
-* **Eden --\[`minor gc`\]--&gt; s0/s1 --\[`big object   /  age<threshold`\]--&gt; Old**
+* **Eden --\[**`minor gc`**\]--&gt; s0/s1 --\[**`big object   /  age<threshold`**\]--&gt; Old**
 
-### 晋升规则
+## 晋升规则
 
 * 年龄阈值
   * 出生在Eden区的对象年龄为0，经过一次 `Minor GC` 后`age++`  ，当`age`超过`-XX:MaxTenuringThreshold=15` 后，晋升到Old区
 * 动态年龄晋升
   * 为了保证`survivor` 区能够容纳更多的新对象，\`Minor GC\` 会巡查某一年龄的对象占用空间超过半数，超过这个年龄的对象会被提前放置Old区。
 
-### 生死抉择
+## 生死抉择
 
 * 引用计数法
 * GC Roots 可达性分析算法（[https://www.zhihu.com/question/21539353](https://www.zhihu.com/question/21539353)）
@@ -30,11 +30,11 @@
   * 方法区中常量引用的对象
   * 本地方法栈中 JNI 引用的对象
 
-![](../../../.gitbook/assets/image%20%289%29.png)
+![](../../../.gitbook/assets/image-8.png)
 
-### 垃圾回收算法
+## 垃圾回收算法
 
-#### 分代回收算法
+### 分代回收算法
 
 | 算法 | YGC | OGC | Thread | 算法 | 重点 | 参数 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -44,8 +44,6 @@
 | **Parallel Scavenge** | **Y** |  |  | 复制 | 高吞吐 | XX:+UseConcMarkSweepGC |
 | Parallel Old |  | Y |  | 标记整理 | 高吞吐 |  |
 | CMS |  |  |  | 标记清除 | 短停顿 |  |
-
-
 
 * **分代收集算法**
   * **新生代**
@@ -63,27 +61,26 @@
       * 类所有实例已被回收，堆中不存在任何该类实例
       * 类对应的Class对象，没有在任何地方（方法区、虚拟机栈、本地方法栈）被引用，无法通过反射访问该类
       * 加载该类的 **ClassLoader** 已被回收
-      * **`-Xnoclassgc`**    控制关闭Class的垃圾回收，建议使用动态代理或CGLib的应用关闭该选项关闭该选项, 开启VM的类卸载功能, 以保证方法区不会溢出.
+      * `-Xnoclassgc`    控制关闭Class的垃圾回收，建议使用动态代理或CGLib的应用关闭该选项关闭该选项, 开启VM的类卸载功能, 以保证方法区不会溢出.
   * 图示
 
+| 算法 | YGC | OGC | Thread | 算法 | 重点 | 参数 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Serial | Y |  | 1 | 复制 | 小内存 | XX:+UseSerialGC |
+| **Serial Old** |  | Y | 1 | 标记整理 | 小内存 |  |
+| **ParNew** | **Y** |  | N | 复制 | CPUs | XX:+UseParNewGC |
+| **Parallel Scavenge** | **Y** |  |  | 复制 | 高吞吐 | XX:+UseConcMarkSweepGC |
+| Parallel Old |  | Y |  | 标记整理 | 高吞吐 |  |
+| CMS |  |  |  | 标记清除 | 短停顿 |  |
 
+| 参数 | 年轻代 | 老年代 |
+| :--- | :--- | :--- |
+| XX:+UseSerialGC | Serial | Serial Old |
+| XX:+UseParNewGC | ParNew | Serial Old |
+|  | Parallel Scavenge | **Serial Old** |
+| XX:+UseConcMarkSweepGC XX:CMSFullGCsBeforeCompaction | ParNew | CMS**+Serial Old整理** |
+|  | Parallel Scavenge | Parallel Old |
 
-    | 算法 | YGC | OGC | Thread | 算法 | 重点 | 参数 |
-    | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-    | Serial | Y |  | 1 | 复制 | 小内存 | XX:+UseSerialGC |
-    | **Serial Old** |  | Y | 1 | 标记整理 | 小内存 |  |
-    | **ParNew** | **Y** |  | N | 复制 | CPUs | XX:+UseParNewGC |
-    | **Parallel Scavenge** | **Y** |  |  | 复制 | 高吞吐 | XX:+UseConcMarkSweepGC |
-    | Parallel Old |  | Y |  | 标记整理 | 高吞吐 |  |
-    | CMS |  |  |  | 标记清除 | 短停顿 |  |
-
-    | 参数 | 年轻代 | 老年代 |
-    | :--- | :--- | :--- |
-    | XX:+UseSerialGC | Serial | Serial Old |
-    | XX:+UseParNewGC | ParNew | Serial Old |
-    |  | Parallel Scavenge | **Serial Old** |
-    | XX:+UseConcMarkSweepGC XX:CMSFullGCsBeforeCompaction | ParNew | CMS**+Serial Old整理** |
-    |  | Parallel Scavenge | Parallel Old |
 * **分区收集算法**
   * **年轻代**
     * 内存被分为多个Regions
@@ -103,7 +100,7 @@
     |  | 5-3 \(Concurrent\) | 重置空regions并将他们返还给空闲列表\(free list\) |
     | \(\*\) | Copying/Cleanup \(Stop the World Event\) | 选择”活跃度”最低的区域\(这些区域可以最快的完成回收\). 拷贝/转移存活的对象到新的尚未使用的regions. 该阶段会被记录在gc-log内\(只发生年轻代`[GC pause (young)]`, 与老年代一起执行则被记录为`[GC Pause (mixed)]`. |
 
-### 垃圾回收算法组合 <a id="vi-vm&#x5E38;&#x7528;&#x53C2;&#x6570;&#x6574;&#x7406;"></a>
+## 垃圾回收算法组合  <a id="vi-vm&#x5E38;&#x7528;&#x53C2;&#x6570;&#x6574;&#x7406;"></a>
 
 | Young GC | Old GC | 参数 | Desc |
 | :--- | :--- | :--- | :--- |
@@ -117,9 +114,7 @@
 | **ZGC** | **JDK11** |  | 1.68ms 自动回收 all in one 区 |
 |  |  |  |  |
 
-
-
-### VM常用参数整理 <a id="vi-vm&#x5E38;&#x7528;&#x53C2;&#x6570;&#x6574;&#x7406;"></a>
+## VM常用参数整理  <a id="vi-vm&#x5E38;&#x7528;&#x53C2;&#x6570;&#x6574;&#x7406;"></a>
 
 | 参数 | 描述 |
 | :--- | :--- |
@@ -144,6 +139,4 @@
 \*\*\*\*
 
 \*\*\*\*
-
-
 

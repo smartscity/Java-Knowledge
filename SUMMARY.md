@@ -68,25 +68,13 @@
 ## Storage
 
 * [OLTP](storage/oltp/README.md)
-  * [Oracle](storage/oltp/oracle/README.md)
-    * [Install 12c](storage/oltp/oracle/install-12c.md)
-    * [GoldenGate](storage/oltp/oracle/goldengate.md)
   * [MySQL](storage/oltp/5.1-mysql.md)
 * [OLAP](storage/olap/README.md)
   * [MongoDB](storage/olap/5.2-mongodb.md)
 * [Time Series Database](storage/time-series-database.md)
 * [Graph Databases](storage/graph-databases/README.md)
   * [Neo4j](storage/graph-databases/neo4j.md)
-* [ClickHouse](storage/shu-ju-ku/README.md)
-  * [Untitled](storage/shu-ju-ku/untitled.md)
-  * [Untitled](storage/shu-ju-ku/untitled-2.md)
-  * [Untitled](storage/shu-ju-ku/untitled-1.md)
-  * [安装部署](storage/shu-ju-ku/an-zhuang-bu-shu.md)
-  * [Setup Cluster](storage/shu-ju-ku/setup-cluster.md)
-  * [System Log Cluster](storage/shu-ju-ku/system-log-cluster.md)
-  * [业务日志](storage/shu-ju-ku/ye-wu-ri-zhi.md)
-  * [集群操作](storage/shu-ju-ku/ji-qun-cao-zuo.md)
-  * [Q&A](storage/shu-ju-ku/q-and-a.md)
+* [ClickHouse](storage/shu-ju-ku.md)
 * [HTAP](storage/htap/README.md)
   * [TiDB](storage/htap/tidb.md)
 
@@ -120,15 +108,13 @@
 
 ## Operation & Monitoring
 
-* [Container](monitor/container/README.md)
-  * [Kubernetes 介绍](monitor/container/kubernetes-an-zhuang/README.md)
-    * [Minikube](monitor/container/kubernetes-an-zhuang/minikube.md)
-    * [Kubeadm](monitor/container/kubernetes-an-zhuang/kubeadm.md)
-* [Monitoring Platform](monitor/monitor-service.md)
-* [自动化运维](monitor/zi-dong-hua-yun-wei/README.md)
-  * [Rancher](monitor/zi-dong-hua-yun-wei/rancher.md)
-  * [Ansible](monitor/zi-dong-hua-yun-wei/ansible.md)
-* [AIOps](monitor/devops.md)
+* [Monitor Service](operation-and-monitoring/monitor-service.md)
+* [DevOps](operation-and-monitoring/devops.md)
+* [Kubernetes 介绍](operation-and-monitoring/kubernetes-an-zhuang/README.md)
+  * [Minikube](operation-and-monitoring/kubernetes-an-zhuang/minikube.md)
+  * [Kubeadm](operation-and-monitoring/kubernetes-an-zhuang/kubeadm.md)
+* [自动化运维](operation-and-monitoring/zi-dong-hua-yun-wei/README.md)
+  * [Ansible](operation-and-monitoring/zi-dong-hua-yun-wei/ansible.md)
 
 ## Paper Writing
 
@@ -148,11 +134,7 @@
   * [Liquibase](q-and-a/saas-store/liquibase.md)
   * [Production](q-and-a/saas-store/production.md)
 
-## BIG DATA
+## Article
 
-* [数据仓库 数据集市 数据湖 数据江 数据沼泽](big-data/shu-ju-cang-ku-shu-ju-ji-shi-shu-ju-hu-shu-ju-jiang-shu-ju-zhao-ze.md)
-
-## Project Design
-
-* [Museum Design](project-design/museum-design.md)
+* [随行付统一监控平台](article/sui-hang-fu-tong-yi-jian-kong-ping-tai.md)
 

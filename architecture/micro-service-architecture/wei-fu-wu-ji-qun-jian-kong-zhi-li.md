@@ -4,8 +4,6 @@
 
 ## Architecture
 
-
-
 ## Features
 
 ### **监视**
@@ -29,8 +27,6 @@
 * Traffic metrics
 * Kubernetes metrics
 
-
-
 ### 控制
 
 * Dump heap
@@ -42,13 +38,9 @@
 
 ### 管理
 
-
-
 ## Design
 
-### Data Center -&gt; Cluster -&gt; Service Name -&gt; Application\[1-N\] 
-
-
+### Data Center -&gt; Cluster -&gt; Service Name -&gt; Application\[1-N\]
 
 ## For People
 

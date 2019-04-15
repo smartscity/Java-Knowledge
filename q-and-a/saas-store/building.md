@@ -1,8 +1,6 @@
 # Building
 
-
-
-### Code Quality 
+## Code Quality
 
 * 使用 [SonarQube](https://www.sonarqube.org/)
   * 代码质量&评分
@@ -10,8 +8,4 @@
 * 性能测试
 * **黑少评分**
   * 构建代码评分体系
-
-
-
-
 

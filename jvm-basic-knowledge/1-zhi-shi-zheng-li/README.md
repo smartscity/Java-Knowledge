@@ -2,7 +2,7 @@
 
 ### **JVM Architecture Diagram**
 
-![](../../.gitbook/assets/image%20%285%29.png)
+![](../../.gitbook/assets/image-4.png)
 
 ### JVM 按占用内存位置划分为四个区域
 
@@ -14,11 +14,9 @@
 ### How JVM works in Java?
 
 1. Class Loader in subsystem.
-2. 
-## 1、JVM
-
-* JVM
-* Java Agent
+2. **1、JVM**
+3. JVM
+4. Java Agent
 
 ## 2、Java 锁
 

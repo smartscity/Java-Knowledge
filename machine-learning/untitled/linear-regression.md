@@ -9,36 +9,32 @@ description: >-
 
 * **线性回归模型函数**
 
-![](../../.gitbook/assets/image%20%2835%29.png)
+![](../../.gitbook/assets/image-29.png)
 
 * **损失函数**
 
   \*\*\*\*
 
-![](../../.gitbook/assets/image%20%2817%29.png)
+![](../../.gitbook/assets/image-14.png)
 
 * **优点**
   * **结果易于理解**
   * **计算简单**
 
-
-
 Becoming a super hero is a fairly straight forward process:
 
-```
+```text
 $ give me super-powers
 ```
 
 {% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
+Super-powers are granted randomly so please submit an issue if you're not happy with yours.
 {% endhint %}
 
 Once you're strong enough, save the world:
 
-```
+```text
 // Ain't no code for that yet, sorry
 echo 'You got to trust me on this, I saved the world'
 ```
-
-
 

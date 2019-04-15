@@ -1,12 +1,10 @@
 # Liquibase
 
-## 
-
 ## About `Liquibase`
 
 Liquibase是一个用于跟踪、管理和应用数据库变化的开源的数据库重构工具；它将所有数据库的变化\(包括结构和数据\)都保存在文件中\(见附录2\)，便于版本控制。
 
-### `Liquibase` 具备如下特性: 
+### `Liquibase` 具备如下特性:
 
 * **不依赖于特定的数据库**
   * supported databases （见附录1）
@@ -25,7 +23,7 @@ Liquibase是一个用于跟踪、管理和应用数据库变化的开源的数�
 
 ### 第一步 导入依赖
 
-#### Gradle import`build.gradle` 
+#### Gradle import`build.gradle`
 
 {% code-tabs %}
 {% code-tabs-item title="build.gradle" %}
@@ -35,7 +33,7 @@ compile("org.liquibase:liquibase-core")
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-####  Maven import`pom.xml`
+#### Maven import`pom.xml`
 
 {% code-tabs %}
 {% code-tabs-item title="pom.xml" %}
@@ -108,15 +106,13 @@ liquibase:
 
 * 在`changeSet`中，打版本标签`<tagDatabase tag="version_0.7.0" />`如下：
 
-
-
-  ```markup
+```markup
       <changeSet author="suixingpay" id="1">
       <changeSet author="suixingpay" id="tag_version_0_7_0">
           <tagDatabase tag="version_0.7.0" />
       </changeSet>
       <changeSet author="suixingpay" id="2">
-  ```
+```
 
 * 每一个tagDatabase标签需要放在独立的changeSet中
 
@@ -144,7 +140,7 @@ liquibase:
     ```
 * **自动升级**
   * 启动工程后，Liquibase会自动运行比较后，执行那些新增的changeSet，随后即可查看目标数据结构变化
-    * **注意 此处 关闭 `drop-first` 避免业务销毁数据**
+    * **注意 此处 关闭** `drop-first` **避免业务销毁数据**
 
       {% code-tabs %}
       {% code-tabs-item title="application.yml" %}
@@ -181,88 +177,51 @@ liquibase:
 
 ### **ChangeSet Supported**
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><b>ChangeSet 下的功能</b>
-      </th>
-      <th style="text-align:left"><b>Description</b>
-      </th>
-      <th style="text-align:left"><b>e.g.</b>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">createTable</td>
-      <td style="text-align:left">创建表</td>
-      <td style="text-align:left">
-        <createTable tableName="custom">
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">dropTable</td>
-      <td style="text-align:left">销毁表</td>
-      <td style="text-align:left">
-        <dropTable tableName="custom">
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">addColumn</td>
-      <td style="text-align:left">加一列</td>
-      <td style="text-align:left">
-        <p>
-          <addColumn tableName="custom">
-        </p>
-        <p>
-          <column name="username"></column>
-        </p>
-        <p>
-          </addColumn>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">modifyDataType</td>
-      <td style="text-align:left">修改列</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">mergeColumns</td>
-      <td style="text-align:left">合并列</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">dropColumn</td>
-      <td style="text-align:left">销毁列</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">insert</td>
-      <td style="text-align:left">插入数据</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">delete</td>
-      <td style="text-align:left">删除数据</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">createIndex</td>
-      <td style="text-align:left">创建索引</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left">dropIndex</td>
-      <td style="text-align:left">销毁索引</td>
-      <td style="text-align:left"></td>
-    </tr>
-  </tbody>
-</table>### `Rollback`划重点
+| **ChangeSet 下的功能** | **Description** | **e.g.** |
+| :--- | :--- | :--- |
+
+
+| createTable | 创建表 |  |
+| :--- | :--- | :--- |
+
+
+| dropTable | 销毁表 |  |
+| :--- | :--- | :--- |
+
+
+| addColumn | 加一列 |  |
+| :--- | :--- | :--- |
+
+
+| modifyDataType | 修改列 |  |
+| :--- | :--- | :--- |
+
+
+| mergeColumns | 合并列 |  |
+| :--- | :--- | :--- |
+
+
+| dropColumn | 销毁列 |  |
+| :--- | :--- | :--- |
+
+
+| insert | 插入数据 |  |
+| :--- | :--- | :--- |
+
+
+| delete | 删除数据 |  |
+| :--- | :--- | :--- |
+
+
+| createIndex | 创建索引 |  |
+| :--- | :--- | :--- |
+
+
+| dropIndex | 销毁索引 |  |
+| :--- | :--- | :--- |
+
 
 在changeSet下有一个非常重要的标签，rollback；它定义了回滚语句。
-
-
 
 ### 我要创建表结构
 
@@ -323,17 +282,14 @@ liquibase:
         <!-- 此处不写 rollback ，因为它可以被  autoRollback -->
         <!-- 【insert】 【drop】 【modifyDataType】必须写rollback，才会被回滚 -->
     </changeSet>
-    
+
     <!-- Tag标签分割，用于rollback到此-->
     <changeSet author="suixingpay" id="tag_version_0_1_0">
         <tagDatabase tag="version_0.1.0" />
     </changeSet>
-
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
-
-
 
 ### 我要建索引
 
@@ -352,7 +308,7 @@ liquibase:
             <column name="register_time"/>
         </createIndex>
     </changeSet>
-    
+
     <!-- Tag标签分割，用于rollback到此-->
     <changeSet author="suixingpay" id="tag_version_0_2_0">
         <tagDatabase tag="version_0.2.0" />
@@ -385,7 +341,7 @@ liquibase:
             </delete>
         </rollback>
     </changeSet>
-    
+
     <!-- Tag标签分割，用于rollback到此-->
     <changeSet author="suixingpay" id="tag_version_0_3_0">
         <tagDatabase tag="version_0.3.0" />
@@ -411,7 +367,7 @@ liquibase:
             </column>
         </addColumn>
     </changeSet>
-    
+
     <!--
         modify mobile of the entity custom   length = 11 + 2 = 13.
     -->
@@ -433,7 +389,7 @@ liquibase:
             </addColumn>
         </rollback>
     </changeSet>
-    
+
     <changeSet id="20180628072452-1" author="suixingpay">
         <dropColumn tableName="custom" columnName="active" />
         <rollback>
@@ -442,24 +398,19 @@ liquibase:
             </addColumn>
         </rollback>
     </changeSet>
-    
+
     <changeSet author="suixingpay" id="tag_version_0_4_0">
         <tagDatabase tag="version_0.4.0" />
     </changeSet>
-
 ```
 
 ### 完整的 `db.changelog.xml`
 
 {% file src="../../.gitbook/assets/db.changelog\_now.xml" %}
 
-
-
-### 
-
 ## Advanced Usage
 
-### Preconditions 条件判断 <a id="sample-with-preconditions"></a>
+### Preconditions 条件判断  <a id="sample-with-preconditions"></a>
 
 * 简单判断
 
@@ -518,14 +469,14 @@ liquibase:
 
 > [http://www.liquibase.org/documentation/diff.html](http://www.liquibase.org/documentation/diff.html)
 
-## Liquibase Command <a id="liquibase-command-line"></a>
+## Liquibase Command  <a id="liquibase-command-line"></a>
 
 ### 反向生成 `Liquibase` from database
 
 * [download liquibase.jar](http://download.liquibase.org/download)
 * view `liquibase`
 
-![](../../.gitbook/assets/image%20%2823%29.png)
+![](../../.gitbook/assets/image-19.png)
 
 * **将已有数据库结构生成**`liquibase.xml`
 
@@ -539,7 +490,6 @@ liquibase:
                 --username=fd \
                 --password=123456 \
                 generateChangeLog
-
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -561,7 +511,7 @@ liquibase:
 
 * 图示
 
-![](../../.gitbook/assets/image%20%2851%29.png)
+![](../../.gitbook/assets/image-40.png)
 
 ### 比较 `Diff`
 
@@ -581,7 +531,7 @@ liquibase:
 
 * 结果如下图所示，红框内为变化量：
 
-![](../../.gitbook/assets/image%20%2844%29.png)
+![](../../.gitbook/assets/image-34.png)
 
 ### More Command
 
@@ -606,8 +556,6 @@ liquibase:
 | [Informix](http://www.liquibase.org/informix.html) | informix | No Issues |
 | Firebird | firebird | No Issues |
 | [SQLite](http://www.liquibase.org/sqlite.html) | sqlite | No Issues |
-
-
 
 ### 2.Works with You
 
@@ -647,7 +595,7 @@ liquibase {
 
 ## Q&A
 
-### **如何在Development、Test、CI&CD、Production等环境下，选择性使用`Liquibase`？**
+### **如何在Development、Test、CI&CD、Production等环境下，选择性使用**`Liquibase`**？**
 
 **只需要在@configuration 配置一套关于所在环境决定开启Liquibase即可，代码如下：**
 
