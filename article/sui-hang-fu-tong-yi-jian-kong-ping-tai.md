@@ -25,13 +25,13 @@ description: 李云龙 现任随行付平台研发架构师，微服务与容器
 
 ## 发展历程
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 
 
 ### 2.0 基于Zabbix架构
 
-![](../.gitbook/assets/image%20%281%29.png)
+![](../.gitbook/assets/image%20%282%29.png)
 
 
 
@@ -41,7 +41,7 @@ description: 李云龙 现任随行付平台研发架构师，微服务与容器
 
 #### ELK 架构图
 
-![](../.gitbook/assets/image%20%282%29.png)
+![](../.gitbook/assets/image%20%283%29.png)
 
 #### 优势
 
@@ -74,7 +74,7 @@ description: 李云龙 现任随行付平台研发架构师，微服务与容器
 
 #### 现在的架构
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 ![](../.gitbook/assets/image.png)
 
