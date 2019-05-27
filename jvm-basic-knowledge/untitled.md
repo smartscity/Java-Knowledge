@@ -25,11 +25,13 @@ public static boolean useArraysBinarySearch(String[] arr, String targetValue) {
 * 存在性能问题
 * 1.7做了优化
 
-
-
 ## 6、类加载器
 
 委托，委托父加载器加载类文件，如果无法加载或找不到，在加载； 可见性，子可见父加载器加载的类，反之不可以；唯一性，仅加载一个类一次。
+
+## 7、Minor GC 执行的时机
+
+Eden区满，或者新对象在Eden装不下时
 
 
 
