@@ -9,7 +9,7 @@
 * Heap（存储实体与数据）
 * Method Area / Metaspace（存储静态实体与数据）
 * Native Method Stack\(本地方法栈，线程的初始化\)
-* 堆外内存（）
+* 堆外内存（ByteBuffer）
 
 ### How JVM works in Java?
 
@@ -32,12 +32,30 @@ CAS、volatile
 
 ## 6、数据库
 
-* MySQL
-* Mongo
+* OLTP
+  * MySQL
+  * Oracle
+* OLAP
+  * Mongo
+  * Clickhouse
+* HTAP\(Hybrid Transactional/Analytical Processing\)
+  * PingCAP
+* TimescaleDB
+  * Promethus
+  * InfluxDB
+* GraphDB
+  * Neo4j
+  * TigerGraph
+
 * [Redis](https://github.com/smartscity/Java-Knowledge/tree/1a8e43b4067cfb72223d14798cacab29ad8ef5b1/Users/apple/Documents/知识整理/5.3、Redis.md)
-* Neo4J
+
 * 性能测试：SequoiaDB vs. MongoDB vs. Cassandra vs. HBase
 * [http://www.csdn.net/article/2014-09-16/2821707-benchmark-test-of-MongoDB-SequoiaDB-HBase-Cassandra/2](http://www.csdn.net/article/2014-09-16/2821707-benchmark-test-of-MongoDB-SequoiaDB-HBase-Cassandra/2)
+* 存储引擎
+  * MyIsam
+  * Innodb
+  * RocksDB
+  * 列式存储
 
 ## 7、缓存
 
@@ -69,4 +87,6 @@ CAS、volatile
 ## 12、源码分析
 
 ## 13、区块链
+
+
 
