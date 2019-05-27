@@ -1,4 +1,4 @@
-# Table of contents
+# Summary
 
 * [J2EE Experience](README.md)
 * [1.About Me](1.about-me.md)
@@ -36,6 +36,9 @@
     * [二叉树](data-structure/data-structure/tree/er-cha-shu.md)
     * [B&B+ Tree](data-structure/data-structure/tree/b-and-b+-tree.md)
     * [Merkle Tree](data-structure/data-structure/tree/merkle-tree.md)
+  * [Orthogonal List](data-structure/data-structure/orthogonal-list.md)
+  * [Ajacency List](data-structure/data-structure/djacency-list.md)
+  * [Inverse Adjacency List](data-structure/data-structure/inverse-adjacency-list.md)
 * [数据结构](data-structure/shu-ju-jie-gou.md)
 
 ## Algorithm

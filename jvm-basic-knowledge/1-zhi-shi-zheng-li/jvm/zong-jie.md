@@ -12,6 +12,7 @@
   * CMS              空闲列表，如果内存不整齐，不是顺序的
 
 * GC
+
   * 引用计数器，为零时表示没有引用
   * 可达性分析算法， GC ROOTS
 
@@ -108,4 +109,6 @@ jmap dump 内存使用情况
 
 * [https://www.cnblogs.com/ityouknow/p/5610232.html](https://www.cnblogs.com/ityouknow/p/5610232.html)
 * [http://jbutton.iteye.com/blog/1569746](http://jbutton.iteye.com/blog/1569746)
+
+
 
