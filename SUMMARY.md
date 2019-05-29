@@ -38,6 +38,7 @@
     * [BTree](data-structure/data-structure/tree/b-and-b+-tree.md)
     * [B+ Tree](data-structure/data-structure/tree/b+-tree.md)
     * [Merkle Tree](data-structure/data-structure/tree/merkle-tree.md)
+    * LSM TREE
   * [Orthogonal List](data-structure/data-structure/orthogonal-list.md)
   * [Ajacency List](data-structure/data-structure/djacency-list.md)
   * [Inverse Adjacency List](data-structure/data-structure/inverse-adjacency-list.md)
