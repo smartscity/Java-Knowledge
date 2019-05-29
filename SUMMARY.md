@@ -84,6 +84,7 @@
 * [HTAP](storage/htap/README.md)
   * [TiDB](storage/htap/tidb.md)
 * 引擎
+  * [Innodb](storage/oltp/innodb.md)
   * RocksDB
   * LevelDB
 
