@@ -3,9 +3,9 @@
 ### 磁盘
 
 * heads/sectors/cylinders，分别就是磁头/扇区/柱面
-* sectors of 1 \* 512 = 512 bytes（一个扇区512b）
+* **sectors of 1 \* 512 = 512 bytes（一个扇区512b）**
 
-* block default4K  = 8 \* sectors（一个块=8个扇区）
+* **block default4K  = 8 \* sectors（一个块=8个扇区）**
 
 ```shell
 # fdisk -l
@@ -22,14 +22,9 @@ Units = cylinders of 16065 * 512 = 8225280 bytes
 ### 文件系统
 
 * xfs 文件系统  block default 4k
-* 
-> https://blog.csdn.net/wylfll/article/details/80865370
->
-> https://www.cnblogs.com/yi-mu-xi/p/10939612.html
-
-
-
-
+* > [https://blog.csdn.net/wylfll/article/details/80865370](https://blog.csdn.net/wylfll/article/details/80865370)
+  >
+  > [https://www.cnblogs.com/yi-mu-xi/p/10939612.html](https://www.cnblogs.com/yi-mu-xi/p/10939612.html)
 
 ![](/assets/btree.png)
 
@@ -42,9 +37,5 @@ Units = cylinders of 16065 * 512 = 8225280 bytes
 5. 根据P2指针找到磁盘块8，读入内存。【磁盘I/O操作第3次】
 6. 在磁盘块8中的关键字列表中找到关键字29。
 
-
-
 **分析上面过程，发现需要3次磁盘I/O操作，和3次内存查找操作。由于内存中的关键字是一个有序表结构，可以利用二分法查找提高效率。而3次磁盘I/O操作是影响整个B-Tree查找效率的决定因素。B-Tree相对于AVLTree缩减了节点个数，使每次磁盘I/O取到内存的数据都发挥了作用，从而提高了查询效率。**
-
-
 
