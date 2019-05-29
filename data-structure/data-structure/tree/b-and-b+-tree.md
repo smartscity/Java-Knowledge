@@ -41,23 +41,17 @@ Units = cylinders of 16065 * 512 = 8225280 bytes
 
 **分析上面过程，发现需要3次磁盘I/O操作，和3次内存查找操作。由于内存中的关键字是一个有序表结构，可以利用二分法查找提高效率。而3次磁盘I/O操作是影响整个B-Tree查找效率的决定因素。B-Tree相对于AVLTree缩减了节点个数，使每次磁盘I/O取到内存的数据都发挥了作用，从而提高了查询效率。**
 
-
-
-
-
-
-
 ## 存在的问题
 
-### 1、写放大问题
+### 1、读写放大问题
 
+为了方便分析，我们进行相关约定，B+ Tree的block size为B，故每个内部节点包含O\(B\)个子节点，叶子节点包含O\(B\)条数据，假设数据集大小为N，则B+ Tree的高度为O\(\(log N/B\)/\(log B\)\)
 
+**写放大：**B+ Tree的每次insert都会在叶子节点写入数据，不论数据实际大小，每次都需要写入B，所以写放大是B
 
+**读放大：**B+ Tree的一次查询需要从根节点一路查到具体的某个叶子节点，所以需要等于层数大小的I/O，也就是O\(\(log N/B\)/\(log B\)\)， 即写放大为O\(\(log N/B\)/\(log B\)\)
 
-
-
-
-> http://kernelmaker.github.io/Btree\_LSM\_FTI
+> [http://kernelmaker.github.io/Btree\_LSM\_FTI](http://kernelmaker.github.io/Btree_LSM_FTI)
 >
 > 《A Comparison of Fractal Trees to Log-Structured Merge \(LSM\) Trees》论文
 
