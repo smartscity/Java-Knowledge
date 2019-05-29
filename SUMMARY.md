@@ -34,6 +34,7 @@
   * [LinkedList](data-structure/data-structure/linkedlist.md)
   * [Tree](data-structure/data-structure/tree/README.md)
     * [二叉树](data-structure/data-structure/tree/er-cha-shu.md)
+    * [平衡二叉树](data-structure/data-structure/tree/ping-heng-er-cha-shu.md)
     * [B&B+ Tree](data-structure/data-structure/tree/b-and-b+-tree.md)
     * [Merkle Tree](data-structure/data-structure/tree/merkle-tree.md)
   * [Orthogonal List](data-structure/data-structure/orthogonal-list.md)
