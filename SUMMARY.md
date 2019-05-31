@@ -78,6 +78,7 @@
   * [MySQL](storage/oltp/5.1-mysql.md)
 * [OLAP](storage/olap/README.md)
   * [MongoDB](storage/olap/5.2-mongodb.md)
+* [Redis](framework/redis.md)
 * [Time Series Database](storage/time-series-database.md)
 * [Graph Databases](storage/graph-databases/README.md)
   * [Neo4j](storage/graph-databases/neo4j.md)
@@ -93,7 +94,6 @@
 
 * [Spring](framework/spring.md)
 * [IBatis & MyBatis](framework/ibatis-and-mybatis.md)
-* [Redis](framework/redis.md)
 * [Ribbitmq](framework/ribbitmq.md)
 * [Activiti BPM](framework/activiti-bpm.md)
 * [MyCat](framework/mycat.md)
