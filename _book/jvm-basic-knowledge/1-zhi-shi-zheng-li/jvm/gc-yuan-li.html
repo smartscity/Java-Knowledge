@@ -1,0 +1,2340 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GC 原理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="zi-jie-ma.html" />
+    
+    
+    <link rel="prev" href="dui-wai-nei-cun.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    J2EE Experience
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../1.about-me.html">
+            
+                <a href="../../../1.about-me.html">
+            
+                    
+                    1.About Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">JVM Basic knowledge</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Java Knowledge
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="jvm-principle.html">
+            
+                <a href="jvm-principle.html">
+            
+                    
+                    JVM 1.7 Principle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="chapter1.html">
+            
+                <a href="chapter1.html">
+            
+                    
+                    JVM 1.8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.3" data-path="dui-wai-nei-cun.html">
+            
+                <a href="dui-wai-nei-cun.html">
+            
+                    
+                    堆外内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.1.4" data-path="gc-yuan-li.html">
+            
+                <a href="gc-yuan-li.html">
+            
+                    
+                    GC 原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.5" data-path="zi-jie-ma.html">
+            
+                <a href="zi-jie-ma.html">
+            
+                    
+                    字节码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.6" data-path="kong-jian-zhan-yong.html">
+            
+                <a href="kong-jian-zhan-yong.html">
+            
+                    
+                    空间占用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.7" data-path="dong-tai-dai-li.html">
+            
+                <a href="dong-tai-dai-li.html">
+            
+                    
+                    动态代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.8" data-path="jvm-ming-ling.html">
+            
+                <a href="jvm-ming-ling.html">
+            
+                    
+                    JVM 命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.9" data-path="zong-jie.html">
+            
+                <a href="zong-jie.html">
+            
+                    
+                    总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../duo-xian-cheng/">
+            
+                <a href="../duo-xian-cheng/">
+            
+                    
+                    多线程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../duo-xian-cheng/2.java-suo.html">
+            
+                <a href="../duo-xian-cheng/2.java-suo.html">
+            
+                    
+                    Java Lock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../duo-xian-cheng/untitled-2.html">
+            
+                <a href="../duo-xian-cheng/untitled-2.html">
+            
+                    
+                    Thread Pool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../duo-xian-cheng/gao-ji-te-xing.html">
+            
+                <a href="../duo-xian-cheng/gao-ji-te-xing.html">
+            
+                    
+                    高级特性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../duo-xian-cheng/xie-cheng.html">
+            
+                <a href="../duo-xian-cheng/xie-cheng.html">
+            
+                    
+                    协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.5" data-path="../duo-xian-cheng/qian-gui-ze.html">
+            
+                <a href="../duo-xian-cheng/qian-gui-ze.html">
+            
+                    
+                    潜规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../2.-gao-ji-te-xing.html">
+            
+                <a href="../2.-gao-ji-te-xing.html">
+            
+                    
+                    Java Agent（代理）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../untitled.html">
+            
+                <a href="../../untitled.html">
+            
+                    
+                    Q&A
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Data Structure</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../../data-structure/data-structure/">
+            
+                <a href="../../../data-structure/data-structure/">
+            
+                    
+                    Data Structure
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../data-structure/data-structure/jvm.html">
+            
+                <a href="../../../data-structure/data-structure/jvm.html">
+            
+                    
+                    Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../data-structure/data-structure/untitled-1.html">
+            
+                <a href="../../../data-structure/data-structure/untitled-1.html">
+            
+                    
+                    Heap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../data-structure/data-structure/1.1-jvm.html">
+            
+                <a href="../../../data-structure/data-structure/1.1-jvm.html">
+            
+                    
+                    Queue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../../data-structure/data-structure/linkedlist.html">
+            
+                <a href="../../../data-structure/data-structure/linkedlist.html">
+            
+                    
+                    LinkedList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../../data-structure/data-structure/tree/">
+            
+                <a href="../../../data-structure/data-structure/tree/">
+            
+                    
+                    Tree
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.5.1" data-path="../../../data-structure/data-structure/tree/er-cha-shu.html">
+            
+                <a href="../../../data-structure/data-structure/tree/er-cha-shu.html">
+            
+                    
+                    二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.2" data-path="../../../data-structure/data-structure/tree/ping-heng-er-cha-shu.html">
+            
+                <a href="../../../data-structure/data-structure/tree/ping-heng-er-cha-shu.html">
+            
+                    
+                    平衡二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.3" data-path="../../../data-structure/data-structure/tree/b-and-b+-tree.html">
+            
+                <a href="../../../data-structure/data-structure/tree/b-and-b+-tree.html">
+            
+                    
+                    BTree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.4" data-path="../../../data-structure/data-structure/tree/b+-tree.html">
+            
+                <a href="../../../data-structure/data-structure/tree/b+-tree.html">
+            
+                    
+                    B+ Tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.5" data-path="../../../data-structure/data-structure/tree/merkle-tree.html">
+            
+                <a href="../../../data-structure/data-structure/tree/merkle-tree.html">
+            
+                    
+                    Merkle Tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5.6" data-path="../../../data-structure/data-structure/tree/lsm-tree.html">
+            
+                <a href="../../../data-structure/data-structure/tree/lsm-tree.html">
+            
+                    
+                    LSM TREE
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../../../data-structure/data-structure/orthogonal-list.html">
+            
+                <a href="../../../data-structure/data-structure/orthogonal-list.html">
+            
+                    
+                    Orthogonal List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../../../data-structure/data-structure/djacency-list.html">
+            
+                <a href="../../../data-structure/data-structure/djacency-list.html">
+            
+                    
+                    Ajacency List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../../../data-structure/data-structure/inverse-adjacency-list.html">
+            
+                <a href="../../../data-structure/data-structure/inverse-adjacency-list.html">
+            
+                    
+                    Inverse Adjacency List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="../../../data-structure/data-structure/btree.html">
+            
+                <a href="../../../data-structure/data-structure/btree.html">
+            
+                    
+                    BTree
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../../data-structure/shu-ju-jie-gou.html">
+            
+                <a href="../../../data-structure/shu-ju-jie-gou.html">
+            
+                    
+                    数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Algorithm</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../../algorithm/shi-jian-fu-za-du.html">
+            
+                <a href="../../../algorithm/shi-jian-fu-za-du.html">
+            
+                    
+                    时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../../algorithm/4-suan-fa/">
+            
+                <a href="../../../algorithm/4-suan-fa/">
+            
+                    
+                    算法基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../../algorithm/4-suan-fa/untitled.html">
+            
+                <a href="../../../algorithm/4-suan-fa/untitled.html">
+            
+                    
+                    Sorting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../../algorithm/4-suan-fa/counting-sort.html">
+            
+                <a href="../../../algorithm/4-suan-fa/counting-sort.html">
+            
+                    
+                    Counting Sort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../../../algorithm/4-suan-fa/top-k.html">
+            
+                <a href="../../../algorithm/4-suan-fa/top-k.html">
+            
+                    
+                    TOP K
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../../../algorithm/4-suan-fa/binary-tree-search.html">
+            
+                <a href="../../../algorithm/4-suan-fa/binary-tree-search.html">
+            
+                    
+                    Binary Tree Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../../../algorithm/4-suan-fa/yi-zhi-xing-suan-fa.html">
+            
+                <a href="../../../algorithm/4-suan-fa/yi-zhi-xing-suan-fa.html">
+            
+                    
+                    一致性算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../../algorithm/distributed-system-algorithm/">
+            
+                <a href="../../../algorithm/distributed-system-algorithm/">
+            
+                    
+                    消息传递的一致性算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../../../algorithm/distributed-system-algorithm/paxos.html">
+            
+                <a href="../../../algorithm/distributed-system-algorithm/paxos.html">
+            
+                    
+                    Paxos
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../../../algorithm/yi-zhi-xing-hash.html">
+            
+                <a href="../../../algorithm/yi-zhi-xing-hash.html">
+            
+                    
+                    分布式缓存一致性算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../../../algorithm/q-and-a.html">
+            
+                <a href="../../../algorithm/q-and-a.html">
+            
+                    
+                    Q&A
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Architecture</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../../architecture/soa-architecture.html">
+            
+                <a href="../../../architecture/soa-architecture.html">
+            
+                    
+                    SOA  Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../../../architecture/micro-service-architecture/">
+            
+                <a href="../../../architecture/micro-service-architecture/">
+            
+                    
+                    Micro Service Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="../../../architecture/micro-service-architecture/traeffic.html">
+            
+                <a href="../../../architecture/micro-service-architecture/traeffic.html">
+            
+                    
+                    Traeffic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="../../../architecture/micro-service-architecture/metrics-jian-kong-for-prometheusgrafana.html">
+            
+                <a href="../../../architecture/micro-service-architecture/metrics-jian-kong-for-prometheusgrafana.html">
+            
+                    
+                    Metrics 监控 for Prometheus&Grafana
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="../../../architecture/micro-service-architecture/wei-fu-wu-ji-qun-jian-kong-zhi-li.html">
+            
+                <a href="../../../architecture/micro-service-architecture/wei-fu-wu-ji-qun-jian-kong-zhi-li.html">
+            
+                    
+                    微服务集群监控治理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../../../architecture/domain-driven-design.html">
+            
+                <a href="../../../architecture/domain-driven-design.html">
+            
+                    
+                    Domain-Driven Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../../../architecture/database-transaction.html">
+            
+                <a href="../../../architecture/database-transaction.html">
+            
+                    
+                    Database Transaction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../../../architecture/distributed-transaction-service.html">
+            
+                <a href="../../../architecture/distributed-transaction-service.html">
+            
+                    
+                    Distributed Transaction Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../../../architecture/untitled.html">
+            
+                <a href="../../../architecture/untitled.html">
+            
+                    
+                    Untitled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="../../../architecture/5.2-mongodb.html">
+            
+                <a href="../../../architecture/5.2-mongodb.html">
+            
+                    
+                    架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Storage</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../../storage/oltp/">
+            
+                <a href="../../../storage/oltp/">
+            
+                    
+                    OLTP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../../storage/oltp/5.1-mysql.html">
+            
+                <a href="../../../storage/oltp/5.1-mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../../../storage/olap/">
+            
+                <a href="../../../storage/olap/">
+            
+                    
+                    OLAP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.2.1" data-path="../../../storage/olap/5.2-mongodb.html">
+            
+                <a href="../../../storage/olap/5.2-mongodb.html">
+            
+                    
+                    MongoDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../../../framework/redis.html">
+            
+                <a href="../../../framework/redis.html">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../../../storage/time-series-database.html">
+            
+                <a href="../../../storage/time-series-database.html">
+            
+                    
+                    Time Series Database
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../../../storage/graph-databases/">
+            
+                <a href="../../../storage/graph-databases/">
+            
+                    
+                    Graph Databases
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.5.1" data-path="../../../storage/graph-databases/neo4j.html">
+            
+                <a href="../../../storage/graph-databases/neo4j.html">
+            
+                    
+                    Neo4j
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="../../../storage/shu-ju-ku.html">
+            
+                <a href="../../../storage/shu-ju-ku.html">
+            
+                    
+                    ClickHouse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.7" data-path="../../../storage/htap/">
+            
+                <a href="../../../storage/htap/">
+            
+                    
+                    HTAP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.7.1" data-path="../../../storage/htap/tidb.html">
+            
+                <a href="../../../storage/htap/tidb.html">
+            
+                    
+                    TiDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.8" >
+            
+                <span>
+            
+                    
+                    引擎
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.8.1" data-path="../../../storage/oltp/innodb.html">
+            
+                <a href="../../../storage/oltp/innodb.html">
+            
+                    
+                    Innodb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.8.2" data-path="../../../storage/oltp/rocksdb.html">
+            
+                <a href="../../../storage/oltp/rocksdb.html">
+            
+                    
+                    RocksDB
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.8.3" >
+            
+                <span>
+            
+                    
+                    LevelDB
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Framework</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../../framework/spring.html">
+            
+                <a href="../../../framework/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../../../framework/ibatis-and-mybatis.html">
+            
+                <a href="../../../framework/ibatis-and-mybatis.html">
+            
+                    
+                    IBatis & MyBatis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../../../framework/ribbitmq.html">
+            
+                <a href="../../../framework/ribbitmq.html">
+            
+                    
+                    Ribbitmq
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="../../../framework/activiti-bpm.html">
+            
+                <a href="../../../framework/activiti-bpm.html">
+            
+                    
+                    Activiti BPM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="../../../framework/mycat.html">
+            
+                <a href="../../../framework/mycat.html">
+            
+                    
+                    MyCat
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Machine Learning</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../../../machine-learning/introduce.html">
+            
+                <a href="../../../machine-learning/introduce.html">
+            
+                    
+                    Introduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../../../machine-learning/untitled/">
+            
+                <a href="../../../machine-learning/untitled/">
+            
+                    
+                    Machine Learning Algorithm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.2.1" data-path="../../../machine-learning/untitled/linear-regression.html">
+            
+                <a href="../../../machine-learning/untitled/linear-regression.html">
+            
+                    
+                    Linear Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2.2" data-path="../../../machine-learning/untitled/decision-tree.html">
+            
+                <a href="../../../machine-learning/untitled/decision-tree.html">
+            
+                    
+                    Decision Tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2.3" data-path="../../../machine-learning/untitled/naive-bayes.html">
+            
+                <a href="../../../machine-learning/untitled/naive-bayes.html">
+            
+                    
+                    Naive Bayes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2.4" data-path="../../../machine-learning/untitled/support-vector-machine.html">
+            
+                <a href="../../../machine-learning/untitled/support-vector-machine.html">
+            
+                    
+                    Support Vector Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2.5" data-path="../../../machine-learning/untitled/untitled-2.html">
+            
+                <a href="../../../machine-learning/untitled/untitled-2.html">
+            
+                    
+                    Untitled
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../../../machine-learning/untitled-3/">
+            
+                <a href="../../../machine-learning/untitled-3/">
+            
+                    
+                    Machine Learning Tools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.3.1" data-path="../../../machine-learning/untitled-3/spark-ml/">
+            
+                <a href="../../../machine-learning/untitled-3/spark-ml/">
+            
+                    
+                    Spark ML
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.3.1.1" data-path="../../../machine-learning/untitled-3/spark-ml/untitled-1.html">
+            
+                <a href="../../../machine-learning/untitled-3/spark-ml/untitled-1.html">
+            
+                    
+                    Basic Knowledge
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3.2" data-path="../../../machine-learning/untitled-3/deeplearning4j.html">
+            
+                <a href="../../../machine-learning/untitled-3/deeplearning4j.html">
+            
+                    
+                    DeepLearning4J
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3.3" data-path="../../../machine-learning/untitled-3/tensoflow.html">
+            
+                <a href="../../../machine-learning/untitled-3/tensoflow.html">
+            
+                    
+                    Tensoflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3.4" data-path="../../../machine-learning/untitled-3/xgboost.html">
+            
+                <a href="../../../machine-learning/untitled-3/xgboost.html">
+            
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3.5" data-path="../../../machine-learning/untitled-3/untitled-2.html">
+            
+                <a href="../../../machine-learning/untitled-3/untitled-2.html">
+            
+                    
+                    Untitled
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="../../../machine-learning/kaggle-competition/">
+            
+                <a href="../../../machine-learning/kaggle-competition/">
+            
+                    
+                    Kaggle Competition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.4.1" data-path="../../../machine-learning/kaggle-competition/titanic-demo.html">
+            
+                <a href="../../../machine-learning/kaggle-competition/titanic-demo.html">
+            
+                    
+                    Titanic Demo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Operation & Monitoring</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../../../operation-and-monitoring/monitor-service.html">
+            
+                <a href="../../../operation-and-monitoring/monitor-service.html">
+            
+                    
+                    Monitor Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../../../operation-and-monitoring/devops.html">
+            
+                <a href="../../../operation-and-monitoring/devops.html">
+            
+                    
+                    DevOps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="../../../operation-and-monitoring/kubernetes-an-zhuang/">
+            
+                <a href="../../../operation-and-monitoring/kubernetes-an-zhuang/">
+            
+                    
+                    Kubernetes 介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.3.1" data-path="../../../operation-and-monitoring/kubernetes-an-zhuang/minikube.html">
+            
+                <a href="../../../operation-and-monitoring/kubernetes-an-zhuang/minikube.html">
+            
+                    
+                    Minikube
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3.2" data-path="../../../operation-and-monitoring/kubernetes-an-zhuang/kubeadm.html">
+            
+                <a href="../../../operation-and-monitoring/kubernetes-an-zhuang/kubeadm.html">
+            
+                    
+                    Kubeadm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="../../../operation-and-monitoring/zi-dong-hua-yun-wei/">
+            
+                <a href="../../../operation-and-monitoring/zi-dong-hua-yun-wei/">
+            
+                    
+                    自动化运维
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.4.1" data-path="../../../operation-and-monitoring/zi-dong-hua-yun-wei/ansible.html">
+            
+                <a href="../../../operation-and-monitoring/zi-dong-hua-yun-wei/ansible.html">
+            
+                    
+                    Ansible
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Paper Writing</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../../../paper-writing/rules-of-paper.html">
+            
+                <a href="../../../paper-writing/rules-of-paper.html">
+            
+                    
+                    Rules of Paper (论文规则)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="../../../paper-writing/hr.html">
+            
+                <a href="../../../paper-writing/hr.html">
+            
+                    
+                    人力资源管理概论
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Q&A</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../../../q-and-a/rabbitmq-producer-block.html">
+            
+                <a href="../../../q-and-a/rabbitmq-producer-block.html">
+            
+                    
+                    RabbitMQ  Producer Block
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../../../q-and-a/technology-stack-selection.html">
+            
+                <a href="../../../q-and-a/technology-stack-selection.html">
+            
+                    
+                    Technology Stack Selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="../../../q-and-a/saas-store/">
+            
+                <a href="../../../q-and-a/saas-store/">
+            
+                    
+                    SaaS Store
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.3.1" data-path="../../../q-and-a/saas-store/xu-qiu-dian.html">
+            
+                <a href="../../../q-and-a/saas-store/xu-qiu-dian.html">
+            
+                    
+                    需求点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3.2" data-path="../../../q-and-a/saas-store/codegen.html">
+            
+                <a href="../../../q-and-a/saas-store/codegen.html">
+            
+                    
+                    Codegen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3.3" data-path="../../../q-and-a/saas-store/building.html">
+            
+                <a href="../../../q-and-a/saas-store/building.html">
+            
+                    
+                    Building
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3.4" data-path="../../../q-and-a/saas-store/test-and-qa.html">
+            
+                <a href="../../../q-and-a/saas-store/test-and-qa.html">
+            
+                    
+                    Test & QA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3.5" data-path="../../../q-and-a/saas-store/deploy.html">
+            
+                <a href="../../../q-and-a/saas-store/deploy.html">
+            
+                    
+                    Deploy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3.6" data-path="../../../q-and-a/saas-store/liquibase.html">
+            
+                <a href="../../../q-and-a/saas-store/liquibase.html">
+            
+                    
+                    Liquibase
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3.7" data-path="../../../q-and-a/saas-store/production.html">
+            
+                <a href="../../../q-and-a/saas-store/production.html">
+            
+                    
+                    Production
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Article</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../../../article/sui-hang-fu-tong-yi-jian-kong-ping-tai.html">
+            
+                <a href="../../../article/sui-hang-fu-tong-yi-jian-kong-ping-tai.html">
+            
+                    
+                    随行付统一监控平台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="../../../article/q-and-a.html">
+            
+                <a href="../../../article/q-and-a.html">
+            
+                    
+                    Q&A
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >GC 原理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="gc-&#x539F;&#x7406;">GC &#x539F;&#x7406;</h1>
+<h2 id="&#x67E5;&#x770B;gc&#x65E5;&#x5FD7;">&#x67E5;&#x770B;GC&#x65E5;&#x5FD7;</h2>
+<ul>
+<li><code>-verbose:gc -XX:HeapDumpPath=. -Xloggc:gc.log -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:+DisableExplicitGC -XX:+PrintTenuringDistribution</code></li>
+<li>``</li>
+</ul>
+<h2 id="&#x5982;&#x4F55;&#x5206;&#x914D;">&#x5982;&#x4F55;&#x5206;&#x914D;</h2>
+<ul>
+<li>&#x5BF9;&#x8C61;&#x4F18;&#x5148;&#x51FA;&#x751F;&#x5728; Eden &#x533A;</li>
+<li>&#x5F53;Eden &#x5373;&#x4FBF;&#x7ECF;&#x8FC7;<code>Minor gc</code> &#x4E5F;&#x88C5;&#x4E0D;&#x4E0B; <code>Big Object</code> &#x6216;&#x8005;&#x8D85;&#x8FC7;&#x914D;&#x7F6E; <code>--XX:PretenureSizeThreshold=3M</code>&#x90A3;&#x4E48;&#x5B83;&#x76F4;&#x63A5;&#x8FDB;&#x5165; Old &#x533A;</li>
+</ul>
+<h2 id="&#x5206;&#x914D;&#x6D41;&#x7A0B;">&#x5206;&#x914D;&#x6D41;&#x7A0B;</h2>
+<ul>
+<li><strong>Eden --[</strong><code>minor gc</code><strong>]--&gt; s0/s1 --[</strong><code>big object   /  age&lt;threshold</code><strong>]--&gt; Old</strong></li>
+</ul>
+<h2 id="&#x664B;&#x5347;&#x89C4;&#x5219;">&#x664B;&#x5347;&#x89C4;&#x5219;</h2>
+<ul>
+<li>&#x5E74;&#x9F84;&#x9608;&#x503C;<ul>
+<li>&#x51FA;&#x751F;&#x5728;Eden&#x533A;&#x7684;&#x5BF9;&#x8C61;&#x5E74;&#x9F84;&#x4E3A;0&#xFF0C;&#x7ECF;&#x8FC7;&#x4E00;&#x6B21; <code>Minor GC</code> &#x540E;<code>age++</code>  &#xFF0C;&#x5F53;<code>age</code>&#x8D85;&#x8FC7;<code>-XX:MaxTenuringThreshold=15</code> &#x540E;&#xFF0C;&#x664B;&#x5347;&#x5230;Old&#x533A;</li>
+</ul>
+</li>
+<li>&#x52A8;&#x6001;&#x5E74;&#x9F84;&#x664B;&#x5347;<ul>
+<li>&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;<code>survivor</code> &#x533A;&#x80FD;&#x591F;&#x5BB9;&#x7EB3;&#x66F4;&#x591A;&#x7684;&#x65B0;&#x5BF9;&#x8C61;&#xFF0C;`Minor GC` &#x4F1A;&#x5DE1;&#x67E5;&#x67D0;&#x4E00;&#x5E74;&#x9F84;&#x7684;&#x5BF9;&#x8C61;&#x5360;&#x7528;&#x7A7A;&#x95F4;&#x8D85;&#x8FC7;&#x534A;&#x6570;&#xFF0C;&#x8D85;&#x8FC7;&#x8FD9;&#x4E2A;&#x5E74;&#x9F84;&#x7684;&#x5BF9;&#x8C61;&#x4F1A;&#x88AB;&#x63D0;&#x524D;&#x653E;&#x7F6E;Old&#x533A;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x751F;&#x6B7B;&#x6289;&#x62E9;">&#x751F;&#x6B7B;&#x6289;&#x62E9;</h2>
+<ul>
+<li>&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x6CD5;</li>
+<li>GC Roots &#x53EF;&#x8FBE;&#x6027;&#x5206;&#x6790;&#x7B97;&#x6CD5;&#xFF08;<a href="https://www.zhihu.com/question/21539353" target="_blank">https://www.zhihu.com/question/21539353</a>&#xFF09;<ul>
+<li>&#x865A;&#x62DF;&#x673A;&#x6808;&#x4E2D;&#x5F15;&#x7528;&#x7684;&#x672C;&#x5730;&#x5BF9;&#x8C61;</li>
+<li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x7C7B;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x5E38;&#x91CF;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x4E2D; JNI &#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../.gitbook/assets/image-8.png" alt=""></p>
+<h2 id="&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;">&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;</h2>
+<h3 id="&#x5206;&#x4EE3;&#x56DE;&#x6536;&#x7B97;&#x6CD5;">&#x5206;&#x4EE3;&#x56DE;&#x6536;&#x7B97;&#x6CD5;</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x7B97;&#x6CD5;</th>
+<th style="text-align:left">YGC</th>
+<th style="text-align:left">OGC</th>
+<th style="text-align:left">Thread</th>
+<th style="text-align:left">&#x7B97;&#x6CD5;</th>
+<th style="text-align:left">&#x91CD;&#x70B9;</th>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Serial</td>
+<td style="text-align:left">Y</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">&#x590D;&#x5236;</td>
+<td style="text-align:left">&#x5C0F;&#x5185;&#x5B58;</td>
+<td style="text-align:left">XX:+UseSerialGC</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Serial Old</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Y</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">&#x6807;&#x8BB0;&#x6574;&#x7406;</td>
+<td style="text-align:left">&#x5C0F;&#x5185;&#x5B58;</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ParNew</strong></td>
+<td style="text-align:left"><strong>Y</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N</td>
+<td style="text-align:left">&#x590D;&#x5236;</td>
+<td style="text-align:left">CPUs</td>
+<td style="text-align:left">XX:+UseParNewGC</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Parallel Scavenge</strong></td>
+<td style="text-align:left"><strong>Y</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x590D;&#x5236;</td>
+<td style="text-align:left">&#x9AD8;&#x541E;&#x5410;</td>
+<td style="text-align:left">XX:+UseConcMarkSweepGC</td>
+</tr>
+<tr>
+<td style="text-align:left">Parallel Old</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Y</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x6807;&#x8BB0;&#x6574;&#x7406;</td>
+<td style="text-align:left">&#x9AD8;&#x541E;&#x5410;</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">CMS</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x6807;&#x8BB0;&#x6E05;&#x9664;</td>
+<td style="text-align:left">&#x77ED;&#x505C;&#x987F;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>&#x5206;&#x4EE3;&#x6536;&#x96C6;&#x7B97;&#x6CD5;</strong><ul>
+<li><strong>&#x65B0;&#x751F;&#x4EE3;</strong><ul>
+<li><strong>&#x590D;&#x5236;&#x7B97;&#x6CD5;</strong>   `s0 -&gt; s1`  &#x5728;s0&#x5230;s1&#x590D;&#x5236;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5254;&#x9664;&#x6389;&#x975E;&#x5B58;&#x6D3B;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x6309;&#x987A;&#x5E8F;&#x653E;&#x7F6E;&#x5230;s1&#x4E2D;&#xFF1B;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x788E;&#x7247;&#xFF0C;&#x7B80;&#x5355;&#x9AD8;&#x6548;&#x3002;</li>
+<li></li>
+</ul>
+</li>
+<li><strong>&#x8001;&#x5E74;&#x4EE3;</strong><ul>
+<li><strong>&#x6807;&#x8BB0;&#x6E05;&#x9664;</strong> &#x901A;&#x8FC7;GC Roots &#x6807;&#x8BB0;&#x9700;&#x8981;&#x56DE;&#x6536;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x6807;&#x8BB0;&#x5B8C;&#x6210;&#x540E;&#x7EDF;&#x4E00;&#x6E05;&#x7406;&#x3002;<ul>
+<li>&#x6548;&#x7387;&#x4F4E;&#x4E0B;</li>
+<li>&#x7A7A;&#x95F4;&#x788E;&#x7247;</li>
+</ul>
+</li>
+<li><strong>&#x6807;&#x8BB0;&#x6574;&#x7406;</strong> &#x4E0E;&#x6807;&#x8BB0;&#x6E05;&#x9664;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x6E05;&#x9664;&#x4E4B;&#x524D;&#x5C06;&#x6D3B;&#x7740;&#x7684;&#x5BF9;&#x8C61;&#x5206;&#x5272;&#x5F00;&#xFF0C;&#x7EDF;&#x4E00;&#x6E05;&#x9664;&#x8FB9;&#x754C;&#x5916;&#x5185;&#x5B58;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x6C38;&#x4E45;&#x4EE3;</strong><ul>
+<li><strong>&#x5E9F;&#x5F03;&#x5E38;&#x91CF;</strong></li>
+<li><strong>&#x65E0;&#x7528;&#x7684;&#x7C7B;</strong></li>
+<li><strong>&#x56DE;&#x6536;&#x6761;&#x4EF6;</strong><ul>
+<li>&#x7C7B;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5DF2;&#x88AB;&#x56DE;&#x6536;&#xFF0C;&#x5806;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x4EFB;&#x4F55;&#x8BE5;&#x7C7B;&#x5B9E;&#x4F8B;</li>
+<li>&#x7C7B;&#x5BF9;&#x5E94;&#x7684;Class&#x5BF9;&#x8C61;&#xFF0C;&#x6CA1;&#x6709;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#xFF08;&#x65B9;&#x6CD5;&#x533A;&#x3001;&#x865A;&#x62DF;&#x673A;&#x6808;&#x3001;&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#xFF09;&#x88AB;&#x5F15;&#x7528;&#xFF0C;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x8BBF;&#x95EE;&#x8BE5;&#x7C7B;</li>
+<li>&#x52A0;&#x8F7D;&#x8BE5;&#x7C7B;&#x7684; <strong>ClassLoader</strong> &#x5DF2;&#x88AB;&#x56DE;&#x6536;</li>
+<li><code>-Xnoclassgc</code>    &#x63A7;&#x5236;&#x5173;&#x95ED;Class&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x6216;CGLib&#x7684;&#x5E94;&#x7528;&#x5173;&#x95ED;&#x8BE5;&#x9009;&#x9879;&#x5173;&#x95ED;&#x8BE5;&#x9009;&#x9879;, &#x5F00;&#x542F;VM&#x7684;&#x7C7B;&#x5378;&#x8F7D;&#x529F;&#x80FD;, &#x4EE5;&#x4FDD;&#x8BC1;&#x65B9;&#x6CD5;&#x533A;&#x4E0D;&#x4F1A;&#x6EA2;&#x51FA;.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x56FE;&#x793A;</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x7B97;&#x6CD5;</th>
+<th style="text-align:left">YGC</th>
+<th style="text-align:left">OGC</th>
+<th style="text-align:left">Thread</th>
+<th style="text-align:left">&#x7B97;&#x6CD5;</th>
+<th style="text-align:left">&#x91CD;&#x70B9;</th>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Serial</td>
+<td style="text-align:left">Y</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">&#x590D;&#x5236;</td>
+<td style="text-align:left">&#x5C0F;&#x5185;&#x5B58;</td>
+<td style="text-align:left">XX:+UseSerialGC</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Serial Old</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Y</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">&#x6807;&#x8BB0;&#x6574;&#x7406;</td>
+<td style="text-align:left">&#x5C0F;&#x5185;&#x5B58;</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ParNew</strong></td>
+<td style="text-align:left"><strong>Y</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">N</td>
+<td style="text-align:left">&#x590D;&#x5236;</td>
+<td style="text-align:left">CPUs</td>
+<td style="text-align:left">XX:+UseParNewGC</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Parallel Scavenge</strong></td>
+<td style="text-align:left"><strong>Y</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x590D;&#x5236;</td>
+<td style="text-align:left">&#x9AD8;&#x541E;&#x5410;</td>
+<td style="text-align:left">XX:+UseConcMarkSweepGC</td>
+</tr>
+<tr>
+<td style="text-align:left">Parallel Old</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Y</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x6807;&#x8BB0;&#x6574;&#x7406;</td>
+<td style="text-align:left">&#x9AD8;&#x541E;&#x5410;</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">CMS</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x6807;&#x8BB0;&#x6E05;&#x9664;</td>
+<td style="text-align:left">&#x77ED;&#x505C;&#x987F;</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x5E74;&#x8F7B;&#x4EE3;</th>
+<th style="text-align:left">&#x8001;&#x5E74;&#x4EE3;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">XX:+UseSerialGC</td>
+<td style="text-align:left">Serial</td>
+<td style="text-align:left">Serial Old</td>
+</tr>
+<tr>
+<td style="text-align:left">XX:+UseParNewGC</td>
+<td style="text-align:left">ParNew</td>
+<td style="text-align:left">Serial Old</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Parallel Scavenge</td>
+<td style="text-align:left"><strong>Serial Old</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">XX:+UseConcMarkSweepGC XX:CMSFullGCsBeforeCompaction</td>
+<td style="text-align:left">ParNew</td>
+<td style="text-align:left">CMS<strong>+Serial Old&#x6574;&#x7406;</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Parallel Scavenge</td>
+<td style="text-align:left">Parallel Old</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>&#x5206;&#x533A;&#x6536;&#x96C6;&#x7B97;&#x6CD5;</strong></p>
+<ul>
+<li><strong>&#x5E74;&#x8F7B;&#x4EE3;</strong><ul>
+<li>&#x5185;&#x5B58;&#x88AB;&#x5206;&#x4E3A;&#x591A;&#x4E2A;Regions</li>
+<li>&#x5B58;&#x6D3B;&#x5BF9;&#x8C61;&#x88AB;&#x62F7;&#x8D1D;&#x5230;&#x65B0;&#x7684;Survivor&#x533A;</li>
+<li>Young GCs&#x4F1A;&#x6709;STW&#x4E8B;&#x4EF6;, &#x8FDB;&#x884C;&#x65F6;&#x6240;&#x6709;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7EBF;&#x7A0B;&#x90FD;&#x4F1A;&#x88AB;&#x6682;&#x505C;</li>
+</ul>
+</li>
+<li><p><strong>&#x8001;&#x5E74;&#x4EE3;</strong></p>
+<p>| index | Phase | Description |
+| :--- | :--- | :--- |
+| (1) | &#x521D;&#x59CB;&#x6807;&#x8BB0; (Initial Mark: Stop the World Event) | &#x5728;G1&#x4E2D;, &#x8BE5;&#x64CD;&#x4F5C;&#x9644;&#x7740;&#x4E00;&#x6B21;&#x5E74;&#x8F7B;&#x4EE3;GC, &#x4EE5;&#x6807;&#x8BB0;Survivor&#x4E2D;&#x6709;&#x53EF;&#x80FD;&#x5F15;&#x7528;&#x5230;&#x8001;&#x5E74;&#x4EE3;&#x5BF9;&#x8C61;&#x7684;Regions. |
+| (2) | &#x626B;&#x63CF;&#x6839;&#x533A;&#x57DF; (Root Region Scanning: &#x4E0E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E76;&#x53D1;&#x6267;&#x884C;) | &#x626B;&#x63CF;Survivor&#x4E2D;&#x80FD;&#x591F;&#x5F15;&#x7528;&#x5230;&#x8001;&#x5E74;&#x4EE3;&#x7684;references. &#x4F46;&#x5FC5;&#x987B;&#x5728;Minor GC&#x89E6;&#x53D1;&#x524D;&#x6267;&#x884C;&#x5B8C;. |
+| (3) | &#x5E76;&#x53D1;&#x6807;&#x8BB0; (Concurrent Marking : &#x4E0E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5E76;&#x53D1;&#x6267;&#x884C;) | &#x5728;&#x6574;&#x4E2A;&#x5806;&#x4E2D;&#x67E5;&#x627E;&#x5B58;&#x6D3B;&#x5BF9;&#x8C61;, &#x4F46;&#x8BE5;&#x9636;&#x6BB5;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;Minor GC&#x4E2D;&#x65AD;. |
+| (4) | &#x91CD;&#x65B0;&#x6807;&#x8BB0; (Remark : Stop the World Event) | &#x5B8C;&#x6210;&#x5806;&#x5185;&#x5B58;&#x4E2D;&#x5B58;&#x6D3B;&#x5BF9;&#x8C61;&#x7684;&#x6807;&#x8BB0;. &#x4F7F;&#x7528;<strong>snapshot-at-the-beginning(SATB, &#x8D77;&#x59CB;&#x5FEB;&#x7167;)</strong>&#x7B97;&#x6CD5;, &#x6BD4;CMS&#x6240;&#x7528;&#x7B97;&#x6CD5;&#x8981;&#x5FEB;&#x5F97;&#x591A;(&#x7A7A;Region&#x76F4;&#x63A5;&#x88AB;&#x79FB;&#x9664;&#x5E76;&#x56DE;&#x6536;, &#x5E76;&#x8BA1;&#x7B97;&#x6240;&#x6709;&#x533A;&#x57DF;&#x7684;&#x6D3B;&#x8DC3;&#x5EA6;). |
+| (5) | &#x6E05;&#x7406; (Cleanup : Stop the World Event and Concurrent) | &#x89C1;&#x4E0B; 5-1&#x3001;2&#x3001;3 |
+|  | 5-1 (Stop the world) | &#x5728;&#x542B;&#x6709;&#x5B58;&#x6D3B;&#x5BF9;&#x8C61;&#x548C;&#x5B8C;&#x5168;&#x7A7A;&#x95F2;&#x7684;&#x533A;&#x57DF;&#x4E0A;&#x8FDB;&#x884C;&#x7EDF;&#x8BA1; |
+|  | 5-2 (Stop the world) | &#x64E6;&#x9664;Remembered Sets. |
+|  | 5-3 (Concurrent) | &#x91CD;&#x7F6E;&#x7A7A;regions&#x5E76;&#x5C06;&#x4ED6;&#x4EEC;&#x8FD4;&#x8FD8;&#x7ED9;&#x7A7A;&#x95F2;&#x5217;&#x8868;(free list) |
+| (*) | Copying/Cleanup (Stop the World Event) | &#x9009;&#x62E9;&#x201D;&#x6D3B;&#x8DC3;&#x5EA6;&#x201D;&#x6700;&#x4F4E;&#x7684;&#x533A;&#x57DF;(&#x8FD9;&#x4E9B;&#x533A;&#x57DF;&#x53EF;&#x4EE5;&#x6700;&#x5FEB;&#x7684;&#x5B8C;&#x6210;&#x56DE;&#x6536;). &#x62F7;&#x8D1D;/&#x8F6C;&#x79FB;&#x5B58;&#x6D3B;&#x7684;&#x5BF9;&#x8C61;&#x5230;&#x65B0;&#x7684;&#x5C1A;&#x672A;&#x4F7F;&#x7528;&#x7684;regions. &#x8BE5;&#x9636;&#x6BB5;&#x4F1A;&#x88AB;&#x8BB0;&#x5F55;&#x5728;gc-log&#x5185;(&#x53EA;&#x53D1;&#x751F;&#x5E74;&#x8F7B;&#x4EE3;<code>[GC pause (young)]</code>, &#x4E0E;&#x8001;&#x5E74;&#x4EE3;&#x4E00;&#x8D77;&#x6267;&#x884C;&#x5219;&#x88AB;&#x8BB0;&#x5F55;&#x4E3A;<code>[GC Pause (mixed)]</code>. |</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;&#x7EC4;&#x5408;--">&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B97;&#x6CD5;&#x7EC4;&#x5408;  <a id="vi-vm&#x5E38;&#x7528;&#x53C2;&#x6570;&#x6574;&#x7406;"></a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Young GC</th>
+<th style="text-align:left">Old GC</th>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">Desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Serial</td>
+<td style="text-align:left">Serial Old</td>
+<td style="text-align:left">XX:+UseSerialGC</td>
+<td style="text-align:left">&#x505C;&#x6B62;&#x590D;&#x5236;&#x7B97;&#x6CD5;&#xFF0C; &#x865A;&#x62DF;&#x673A;&#x5728;Client&#x6A21;&#x5F0F;</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ParNew</strong></td>
+<td style="text-align:left">Serial Old</td>
+<td style="text-align:left">XX:+UseParNewGC</td>
+<td style="text-align:left">&#x505C;&#x6B62;&#x590D;&#x5236;&#x7B97;&#x6CD5;&#xFF0C; &#x5173;&#x6CE8;&#x7F29;&#x77ED;&#x5783;&#x573E;&#x6536;&#x96C6;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ParallelScavenge</strong></td>
+<td style="text-align:left">Serial Old</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x505C;&#x6B62;&#x590D;&#x5236;&#x7B97;&#x6CD5; &#xFF0C;&#x5173;&#x6CE8;CPU&#x541E;&#x5410;&#x91CF;&#xFF0C; Server&#x6A21;&#x5F0F;&#xFF0C;&#x9002;&#x5408;&#x8FD0;&#x884C;&#x540E;&#x53F0;&#x8FD0;&#x7B97;</td>
+</tr>
+<tr>
+<td style="text-align:left">Parallel Scavenge</td>
+<td style="text-align:left"><strong>Parallel Old</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x591A;&#x7EBF;&#x7A0B;&#x673A;&#x5236;&#xFF0C;&#x6807;&#x8BB0;&#x6574;&#x7406;&#xFF0C;&#x6C47;&#x603B;&#x538B;&#x7F29;&#xFF0C;&#x541E;&#x5410;&#x91CF;&#x4F18;&#x5148;</td>
+</tr>
+<tr>
+<td style="text-align:left">ParNew</td>
+<td style="text-align:left"><strong>CMS</strong> + Serial Old</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x6807;&#x8BB0;&#x6E05;&#x9664;&#xFF0C; &#x5E76;&#x53D1;&#x6536;&#x96C6;&#xFF0C;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#x5F88;&#x5C11;&#xFF0C;&#x9002;&#x5408;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#xFF0C;&#x63D0;&#x9AD8;&#x7528;&#x6237;&#x4F53;&#x9A8C;</td>
+</tr>
+<tr>
+<td style="text-align:left">ParNew</td>
+<td style="text-align:left">Serial Old</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&#x7528;&#x6237;&#x7EBF;&#x7A0B;&#x4E0D;&#x8DB3;&#x65F6;&#x91C7;&#x7528; ParNew + Serial Old</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>G1</strong></td>
+<td style="text-align:left"><strong>G1 &#x53D6;&#x4EE3; CMS</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">****</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ZGC</strong></td>
+<td style="text-align:left"><strong>JDK11</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">1.68ms &#x81EA;&#x52A8;&#x56DE;&#x6536; all in one &#x533A;</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="vm&#x5E38;&#x7528;&#x53C2;&#x6570;&#x6574;&#x7406;--">VM&#x5E38;&#x7528;&#x53C2;&#x6570;&#x6574;&#x7406;  <a id="vi-vm&#x5E38;&#x7528;&#x53C2;&#x6570;&#x6574;&#x7406;"></a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x53C2;&#x6570;</th>
+<th style="text-align:left">&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-Xms</code></td>
+<td style="text-align:left">&#x6700;&#x5C0F;&#x5806;&#x5927;&#x5C0F;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-Xmx</code></td>
+<td style="text-align:left">&#x6700;&#x5927;&#x5806;&#x5927;&#x5C0F;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-Xmn</code></td>
+<td style="text-align:left">&#x65B0;&#x751F;&#x4EE3;&#x5927;&#x5C0F;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-XX:PermSize</code></td>
+<td style="text-align:left">&#x6C38;&#x4E45;&#x4EE3;&#x5927;&#x5C0F;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-XX:MaxPermSize</code></td>
+<td style="text-align:left">&#x6C38;&#x4E45;&#x4EE3;&#x6700;&#x5927;&#x5927;&#x5C0F;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-XX:+PrintGC</code></td>
+<td style="text-align:left">&#x8F93;&#x51FA;GC&#x65E5;&#x5FD7;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-verbose:gc</code></td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-XX:+PrintGCDetails</code></td>
+<td style="text-align:left">&#x8F93;&#x51FA;GC&#x7684;&#x8BE6;&#x7EC6;&#x65E5;&#x5FD7;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-XX:+PrintGCTimeStamps</code></td>
+<td style="text-align:left">&#x8F93;&#x51FA;GC&#x65F6;&#x95F4;&#x6233;(&#x4EE5;&#x57FA;&#x51C6;&#x65F6;&#x95F4;&#x7684;&#x5F62;&#x5F0F;)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-XX:+PrintHeapAtGC</code></td>
+<td style="text-align:left">&#x5728;&#x8FDB;&#x884C;GC&#x7684;&#x524D;&#x540E;&#x6253;&#x5370;&#x51FA;&#x5806;&#x7684;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-Xloggc:/path/gc.log</code></td>
+<td style="text-align:left">GC&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x8F93;&#x51FA;&#x8DEF;&#x5F84;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-XX:+PrintGCApplicationStoppedTime</code></td>
+<td style="text-align:left">&#x6253;&#x5370;&#x7531;GC&#x4EA7;&#x751F;&#x7684;&#x505C;&#x987F;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td style="text-align:left">-XX:ParallelGCThreads</td>
+<td style="text-align:left">&#x5E76;&#x53D1;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MaxGCPauseMillis</code></td>
+<td style="text-align:left">(&#x6BEB;&#x79D2;&#x6570;)&#x5185;&#x5B58;&#x56DE;&#x6536;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x4E0D;&#x8D85;&#x8FC7;&#x8BBE;&#x5B9A;&#x503C;, &#x4F46;&#x5982;&#x679C;&#x592A;&#x5C0F;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;GC&#x7684;&#x9891;&#x7387;&#x589E;&#x52A0;.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GCTimeRatio</code></td>
+<td style="text-align:left">(&#x6574;&#x6570;:<code>0 &lt; GCTimeRatio &lt; 100</code>) &#x662F;&#x5783;&#x573E;&#x6536;&#x96C6;&#x65F6;&#x95F4;&#x5360;&#x603B;&#x65F6;&#x95F4;&#x7684;&#x6BD4;&#x7387;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>XX:+UseAdaptiveSizePolicy</code></td>
+<td style="text-align:left">&#x542F;&#x7528;GC&#x81EA;&#x9002;&#x5E94;&#x7684;&#x8C03;&#x8282;&#x7B56;&#x7565;: &#x4E0D;&#x518D;&#x9700;&#x8981;&#x624B;&#x5DE5;&#x6307;&#x5B9A;<code>-Xmn</code>&#x3001;<code>-XX:SurvivorRatio</code>&#x3001;<code>-XX:PretenureSizeThreshold</code>&#x7B49;&#x7EC6;&#x8282;&#x53C2;&#x6570;, VM&#x4F1A;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7684;&#x8FD0;&#x884C;&#x60C5;&#x51B5;&#x6536;&#x96C6;&#x6027;&#x80FD;&#x76D1;&#x63A7;&#x4FE1;&#x606F;, &#x52A8;&#x6001;&#x8C03;&#x6574;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x4EE5;&#x63D0;&#x4F9B;&#x6700;&#x5408;&#x9002;&#x7684;&#x505C;&#x987F;&#x65F6;&#x95F4;&#x6216;&#x6700;&#x5927;&#x7684;&#x541E;&#x5410;&#x91CF;</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>XX:+UseG1GC</code></td>
+</tr>
+</tbody>
+</table>
+<p>****</p>
+<p>****</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="dui-wai-nei-cun.html" class="navigation navigation-prev " aria-label="Previous page: 堆外内存">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="zi-jie-ma.html" class="navigation navigation-next " aria-label="Next page: 字节码">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GC 原理","level":"2.1.1.4","depth":3,"next":{"title":"字节码","level":"2.1.1.5","depth":3,"path":"jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/zi-jie-ma.md","ref":"jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/zi-jie-ma.md","articles":[]},"previous":{"title":"堆外内存","level":"2.1.1.3","depth":3,"path":"jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/dui-wai-nei-cun.md","ref":"jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/dui-wai-nei-cun.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jvm-basic-knowledge/1-zhi-shi-zheng-li/jvm/gc-yuan-li.md","mtime":"2019-05-27T12:55:35.175Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-11T06:25:44.816Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

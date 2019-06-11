@@ -1,0 +1,140 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--        Added the entity custom.    -->
+    <changeSet id="20180628072446-1" author="suixingpay">
+        <createTable tableName="custom">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(11)" remarks="用户姓名">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(64)" remarks="用户密码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mobile" type="varchar(11)" remarks="手机号">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_strength" type="integer" remarks="密码强壮程度">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nick_name" type="varchar(32)" remarks="昵称">
+                <constraints nullable="true"/>
+            </column>
+            <column name="full_name" type="varchar(32)" remarks="姓名">
+                <constraints nullable="true"/>
+            </column>
+            <column name="email" type="varchar(64)" remarks="邮箱">
+                <constraints nullable="true"/>
+            </column>
+            <column name="id_type" type="integer" remarks="证件类型">
+                <constraints nullable="true"/>
+            </column>
+            <column name="id_card" type="varchar(255)" remarks="证件号码">
+                <constraints nullable="true"/>
+            </column>
+            <column name="active" type="boolean" defaultValueBoolean="true" remarks="激活"/>
+            <column name="bbbb" type="boolean" defaultValueBoolean="true" remarks="激活1"/>
+            <column name="register_time" type="datetime" defaultValueComputed="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <!-- needle-liquibase-add-column - we will add columns here, do not remove-->
+        </createTable>
+        <!-- 此处不写 rollback ，因为它可以被  autorollback -->
+        <!-- 【insert】 【drop】 【modifyDataType】必须写rollback，才会被回滚 -->
+    </changeSet>
+    <!-- Tag标签分割，用于rollback到此-->
+    <changeSet author="suixingpay" id="tag_version_0_1_0">
+        <tagDatabase tag="version_0.1.0"/>
+    </changeSet>
+
+
+    <!--        modify mobile of the entity custom   length = 11 + 2 = 13.    -->
+    <changeSet id="201806280724549-1" author="suixingpay">
+        <createIndex tableName="custom" indexName="idx_custom_username_mobile_nickname_fullname_registerxtime"
+                     unique="false">
+            <column name="username"/>
+            <column name="mobile"/>
+            <column name="nick_name"/>
+            <column name="full_name"/>
+            <column name="register_time"/>
+        </createIndex>
+    </changeSet>
+
+    <!-- Tag标签分割，用于rollback到此-->
+    <changeSet author="suixingpay" id="tag_version_0_2_0">
+        <tagDatabase tag="version_0.2.0"/>
+    </changeSet>
+
+    <changeSet id="20180628072450-1" author="suixingpay">
+        <insert tableName="custom">
+            <column name="username" value="liyunlong"/>
+            <column name="password" value="123456"/>
+            <column name="mobile" value="18651698213"/>
+            <column name="password_strength" value="1"/>
+            <column name="nick_name" value="昵称"/>
+            <column name="full_name" value="姓名"/>
+            <!--<column name="status" value="1"/>-->
+        </insert>
+        <rollback>
+            <delete tableName="custom">
+                <where>username = 'liyunlong'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+
+    <!-- Tag标签分割，用于rollback到此-->
+    <changeSet author="suixingpay" id="tag_version_0_3_0">
+        <tagDatabase tag="version_0.3.0"/>
+    </changeSet>
+
+    <!--        Added column of the entity custom .    -->
+    <changeSet id="20180628072447-1" author="suixingpay">
+        <addColumn tableName="custom">
+            <column name="status" type="tinyint">
+                <constraints nullable="false"></constraints>
+            </column>
+        </addColumn>
+    </changeSet>
+    <!--        modify mobile of the entity custom   length = 11 + 2 = 13.    -->
+    <changeSet id="20180628072448-1" author="suixingpay">
+        <modifyDataType tableName="custom" columnName="mobile" newDataType="varchar(13)"/>
+        <rollback>
+            <modifyDataType tableName="custom" columnName="mobile" newDataType="varchar(11)"/>
+        </rollback>
+    </changeSet>
+    <!--        drop bbbb of the entity custom    -->
+    <changeSet id="20180628072451-1" author="suixingpay">
+        <dropColumn tableName="custom" columnName="bbbb"/>
+        <rollback>
+            <addColumn tableName="custom">
+                <column name="bbbb" type="boolean" defaultValueBoolean="true" remarks="测试"></column>
+            </addColumn>
+        </rollback>
+    </changeSet>
+    <changeSet id="20180628072452-1" author="suixingpay">
+        <dropColumn tableName="custom" columnName="active"/>
+        <rollback>
+            <addColumn tableName="custom">
+                <column name="active" type="boolean" defaultValueBoolean="true" remarks="激活1"></column>
+            </addColumn>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="suixingpay" id="tag_version_0_4_0">
+        <tagDatabase tag="version_0.4.0"/>
+    </changeSet>
+
+</databaseChangeLog>
