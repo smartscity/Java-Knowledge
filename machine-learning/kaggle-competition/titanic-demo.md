@@ -28,8 +28,6 @@ description: 关于泰坦尼克幸存者语言
 
 * **Python**
 
-{% code-tabs %}
-{% code-tabs-item title="Titanic.py" %}
 ```text
 #
 #   0.78
@@ -432,6 +430,4 @@ ________________________________________
 4                 Naive Bayes  72.28
 ________________________________________
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 

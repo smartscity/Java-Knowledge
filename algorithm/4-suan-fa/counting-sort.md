@@ -18,8 +18,6 @@ description: 计数排序算法
   * **Step 2:** 遍历count\[MAX-MIN\]，得到 array\[N\]，排序结束
 * **代码**
 
-{% code-tabs %}
-{% code-tabs-item title="CountingSort" %}
 ```java
 public static void main(String[] args) {
     int[] array = new int[]{5, 7, 1, 8, 9, 2, 3, 4, 1, 3, 6, 2, 4, 0};
@@ -39,8 +37,6 @@ public static void main(String[] args) {
     // 01122334456789
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 * **图示**
 
