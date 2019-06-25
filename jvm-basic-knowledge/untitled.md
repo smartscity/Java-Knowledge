@@ -33,5 +33,3 @@ public static boolean useArraysBinarySearch(String[] arr, String targetValue) {
 
 Eden区满，或者新对象在Eden装不下时
 
-
-

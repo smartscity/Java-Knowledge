@@ -1,8 +1,4 @@
-# Orthogonal List （十字链表）
+# Orthogonal List
 
-
-
-![](/assets/shizilianbiao.png)
-
-
+![](../../.gitbook/assets/shizilianbiao.png)
 
