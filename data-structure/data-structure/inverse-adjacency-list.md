@@ -1,10 +1,2 @@
 # Inverse Adjacency List
 
-
-
-
-
-# 
-
-
-

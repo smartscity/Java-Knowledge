@@ -1,10 +1,8 @@
-# B Tree\(平衡多路查找树\)
+# BTree
 
 **目的：解决随机读取**
 
-> https://baijiahao.baidu.com/s?id=1625857888377870075&wfr=spider&for=pc
-
-
+> [https://baijiahao.baidu.com/s?id=1625857888377870075&wfr=spider&for=pc](https://baijiahao.baidu.com/s?id=1625857888377870075&wfr=spider&for=pc)
 
 **劣势：**从上一节中的B-Tree结构图中可以看到每个节点中不仅包含数据的key值，还有data值。而每一个页的存储空间是有限的，如果data数据较大时将会导致每个节点（即一个页）能存储的key的数量很小，当存储的数据量很大时同样会导致B-Tree的深度较大，增大查询时的磁盘I/O次数，进而影响查询效率。在B+Tree中，所有数据记录节点都是按照键值大小顺序存放在同一层的叶子节点上，而非叶子节点上只存储key值信息，这样可以大大加大每个节点存储的key值数量，降低B+Tree的高度。
 
@@ -12,10 +10,9 @@
 
 * heads/sectors/cylinders，分别就是磁头/扇区/柱面
 * **sectors of 1 \* 512 = 512 bytes（一个扇区512b）**
+* **block default4K = 8 \* sectors（一个块=8个扇区）**
 
-* **block default4K  = 8 \* sectors（一个块=8个扇区）**
-
-```shell
+```text
 # fdisk -l
 Disk /dev/cciss/c0d0: 146.7 GB, 146778685440 bytes
 255 heads, 63 sectors/track, 17844 cylinders
@@ -34,7 +31,7 @@ Units = cylinders of 16065 * 512 = 8225280 bytes
   >
   > [https://www.cnblogs.com/yi-mu-xi/p/10939612.html](https://www.cnblogs.com/yi-mu-xi/p/10939612.html)
 
-![](/assets/btree.png)
+![](../../../.gitbook/assets/btree.png)
 
 模拟查找关键字29的过程：
 
@@ -60,6 +57,4 @@ Units = cylinders of 16065 * 512 = 8225280 bytes
 > [http://kernelmaker.github.io/Btree\_LSM\_FTI](http://kernelmaker.github.io/Btree_LSM_FTI)
 >
 > 《A Comparison of Fractal Trees to Log-Structured Merge \(LSM\) Trees》论文
-
-
 

@@ -57,7 +57,6 @@
   ```
 
 * 线性对数阶`O(nlog2n)`
-
 * 立方阶`O(n^3)`
 * k次方阶`O(n^k)`
 * 指数阶`O(2^n)`
@@ -91,6 +90,4 @@
 ## 参考文献
 
 * [https://www.jianshu.com/p/f4cca5ce055a](https://www.jianshu.com/p/f4cca5ce055a)
-
-
 
